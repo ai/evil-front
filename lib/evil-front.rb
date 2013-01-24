@@ -8,5 +8,6 @@ require 'compass-rails'
 require 'ceaser-easing'
 require 'jquery-rails-cdn'
 
-dir = File.join(File.dirname(__FILE__), 'evil/front')
+dir = File.join(File.dirname(__FILE__), 'evil-front')
 require File.join(dir, 'version')
+require File.join(dir, 'helpers')

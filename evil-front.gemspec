@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require './lib/evil/front/version'
+require './lib/evil-front/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
