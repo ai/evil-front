@@ -9,10 +9,10 @@ module EvilFront::Helpers
   #   html
   #     head
   #       = title_tag('Foo Company')
-  def title_tag(site, separator = nil)
+  def title_tag(site = nil, separator = nil)
     @evil_front_titles ||= []
     separator ||= I18n.locale == :ru ? ' — ' : ' - '
-    titles      = @evil_front_titles + [site]
+    titles      = (@evil_front_titles + [site]).compact
     content_tag(:title, titles.join(separator))
   end
 end
