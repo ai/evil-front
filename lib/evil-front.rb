@@ -1,5 +1,5 @@
 # encoding: utf-8
-# Load all neccessary files.
+# Load all neccessary libraries and files.
 
 require 'sass-rails'
 require 'slim-rails'
@@ -11,3 +11,4 @@ require 'jquery-rails-cdn'
 dir = File.join(File.dirname(__FILE__), 'evil-front')
 require File.join(dir, 'version')
 require File.join(dir, 'helpers')
+require File.join(dir, 'slim')
