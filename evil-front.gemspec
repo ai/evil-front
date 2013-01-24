@@ -18,4 +18,15 @@ Gem::Specification.new do |s|
   s.files            = `git ls-files`.split("\n")
   s.extra_rdoc_files = ['README.md', 'LICENSE']
   s.require_path     = 'lib'
+
+  s.add_dependency 'rails',            '>= 3'
+  s.add_dependency 'compass',          '>= 0.13.alpha.0'
+  s.add_dependency 'uglifier',         '>= 1.3.0'
+  s.add_dependency 'sass-rails',       '>= 3.2.6'
+  s.add_dependency 'slim-rails',       '>= 1.1.0'
+  s.add_dependency 'role-rails',       '>= 1.3.1'
+  s.add_dependency 'coffee-rails',     '>= 3.2.2'
+  s.add_dependency 'compass-rails',    '>= 1'
+  s.add_dependency 'ceaser-easing',    '>= 0.6.1'
+  s.add_dependency 'jquery-rails-cdn', '>= 0.3'
 end
