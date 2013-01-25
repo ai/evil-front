@@ -6,5 +6,5 @@ module EvilFront
   end
 end
 
-dir = File.join(File.dirname(__FILE__), 'helpers')
-Dir.glob(File.join(dir, '*.rb')) { |helper| require helper }
+dir = Pathname(__FILE__).dirname.join('helpers')
+Dir.glob(dir.join('*.rb').to_s) { |helper| require helper }
