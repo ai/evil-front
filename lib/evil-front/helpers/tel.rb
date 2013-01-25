@@ -6,8 +6,9 @@ module EvilFront::Helpers
   #
   #   label Contact us:
   #   = tel('+7 (495) 660−83−79')
-  def tel(number)
-    href = "tel:" + number.gsub(/[^\d\+]/, '')
-    content_tag(:a, number, href: href, class: 'tel')
+  def tel(number, args = { })
+    args[:href]  = "tel:" + number.gsub(/[^\d\+]/, '')
+    args[:class] = (['tel', args[:class]]).compact.join(' ')
+    content_tag(:a, number, args)
   end
 end
