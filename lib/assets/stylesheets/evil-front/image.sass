@@ -1,0 +1,7 @@
+// Shortcut to set image size and background from one image.
+//
+//   .button
+//      +image("nice/button.png")
+@mixin image($path)
+  +image-size($path)
+  background: image-url($path) no-repeat
