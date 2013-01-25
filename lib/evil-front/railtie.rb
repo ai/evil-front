@@ -21,4 +21,8 @@ module EvilFront
       ActiveSupport.on_load(:action_view) { include Helpers }
     end
   end
+
+  # Enable `lib/assets/` and `vendor/assets/`.
+  class Engine < ::Rails::Engine
+  end
 end

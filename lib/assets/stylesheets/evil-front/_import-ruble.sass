@@ -1,0 +1,36 @@
+@mixin import-ruble($defaults: sans-serif, $regular: false, $italic: false, $bold: false, $bolditalic: false)
+  @font-face
+    font-family: 'ALSRubl-Arial'
+    @if $regular
+      src: inline-font("evil-front/alsrubl-arial-regular.woff")
+    @else
+      src: font-files("evil-front/alsrubl-arial-regular.woff", woff)
+
+  @font-face
+    font-family: 'ALSRubl-Arial'
+    font-style: italic
+    @if $italic
+      src: inline-font("evil-front/alsrubl-arial-italic.woff")
+    @else
+      src: font-files("evil-front/alsrubl-arial-italic.woff", woff)
+
+  @font-face
+    font-family: 'ALSRubl-Arial'
+    font-weight: bold
+    @if $bold
+      src: inline-font("evil-front/alsrubl-arial-bold.woff")
+    @else
+      src: font-files("evil-front/alsrubl-arial-bold.woff", woff)
+
+  @font-face
+    font-family: 'ALSRubl-Arial'
+    font-style: italic
+    font-weight: bold
+    @if $bolditalic
+      src: inline-font("evil-front/alsrubl-arial-bolditalic.woff")
+    @else
+      src: font-files("evil-front/alsrubl-arial-bolditalic.woff", woff)
+
+  .ruble
+    font-family: ALSRubl-Arial, unquote($defaults)
+    line-height: 1
