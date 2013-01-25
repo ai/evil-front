@@ -1,0 +1,9 @@
+// Shortcut to set `height` and `line-height` to vertical text centering.
+// You can also set `$line-diff` to have different `line-height`.
+//
+//   .button
+//     display: inline-block
+//     +height(24px)
+@mixin height($height, $line-diff: 0)
+  height: $height
+  line-height: $height + $line-diff
