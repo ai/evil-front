@@ -15,6 +15,11 @@ module EvilFront
         map { |i| File.basename(i).sub(/\.(sass|coffee)$/, '') }.
         reject { |i| i =~ /^application\.(js|css)$/ } +
         ['jquery.js']
+
+      # Sass debug in Chrome
+      if Rails.env.development?
+        app.config.sass.debug_info = true
+      end
     end
 
     initializer 'evil_front.action_view' do
