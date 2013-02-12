@@ -9,7 +9,7 @@ module EvilFront
       app.config.generators.javascripts = false
       app.config.generators.helper      = false
 
-      # Precompile all JS/CSS in root of app assets dirs.c
+      # Precompile all JS/CSS in root of app assets dirs.
       app.config.assets.precompile +=
         Dir[Rails.root.join('app/assets/*/*.{js,css}*')].
         map { |i| File.basename(i).sub(/\.(sass|coffee)$/, '') }.
