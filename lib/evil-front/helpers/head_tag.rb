@@ -10,9 +10,8 @@ module EvilFront::Helpers
   #         = title_tag(t.title)
   #         = standard_assets
   def head_tag(&block)
-    head_content(&block) if block_given?
-
     head  = tag(:meta, charset: 'UTF-8')
+    head += capture(&block) if block_given?
     head += content_for(:evil_front_head)
 
     if Rails.env.production?
