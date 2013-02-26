@@ -9,6 +9,10 @@ module EvilFront::Helpers
   #       = head_tag do
   #         = title_tag(t.title)
   #         = standard_assets
+  #
+  # You can disable statistics counter by options:
+  #
+  #   = head_tag(statistics: false) do
   def head_tag(options = { }, &block)
     head  = tag(:meta, charset: 'UTF-8')
     head += capture(&block) if block_given?
