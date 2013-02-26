@@ -9,12 +9,13 @@ module EvilFront::Helpers
   #       = head_tag do
   #         = title_tag(t.title)
   #         = standard_assets
-  def head_tag(&block)
+  def head_tag(options = { }, &block)
     head  = tag(:meta, charset: 'UTF-8')
     head += capture(&block) if block_given?
     head += content_for(:evil_front_head)
 
-    if Rails.env.production?
+    options[:statistics] ||= true
+    if options[:statistics] and Rails.env.production?
       head += render('layouts/statistics') rescue ''
     end
 
