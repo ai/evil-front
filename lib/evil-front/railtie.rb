@@ -11,8 +11,9 @@ module EvilFront
 
       # Precompile all JS/CSS in root of app assets dirs.
       app.config.assets.precompile +=
-        Dir[Rails.root.join('app/assets/*/*.{js,css}*')].
-        map { |i| File.basename(i).sub(/\.(sass|coffee)$/, '') }.
+        Dir[Rails.root.join('app/assets/*/*.{js,css,coffee,sass,scss}*')].
+        map { |i| File.basename(i).sub(/(\.js)?\.coffee$/, '.js') }.
+        map { |i| File.basename(i).sub(/(\.css)?\.(sass|scss)$/, '.css') }.
         reject { |i| i =~ /^application\.(js|css)$/ } +
         ['jquery.js']
 
