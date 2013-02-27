@@ -17,7 +17,6 @@ module EvilFront::Helpers
   def title_tag(*site)
     @evil_front_titles ||= []
     options   = site.extract_options!
-    p site
     separator = options[:separator] || I18n.locale == :ru ? ' — ' : ' - '
     titles    = (@evil_front_titles + site).compact
     content_tag(:title, titles.join(separator))
