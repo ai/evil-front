@@ -9,6 +9,7 @@ require 'role-rails'
 require 'compass-rails'
 require 'ceaser-easing'
 require 'jquery-rails-cdn'
+require 'autoprefixer-rails'
 
 dir = Pathname(__FILE__).dirname.join('evil-front')
 require dir.join('version')
