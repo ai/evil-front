@@ -8,6 +8,7 @@ require 'slim-rails'
 require 'role-rails'
 require 'compass-rails'
 require 'ceaser-easing'
+require 'unicode_utils'
 require 'jquery-rails-cdn'
 require 'autoprefixer-rails'
 
