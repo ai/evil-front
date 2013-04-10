@@ -11,7 +11,7 @@ module EvilFront::Helpers
   #   = typograph do
   #     = user.name
   #     = user.profession
-  def typograph(text = nil, &block)
+  def russian_typograph(text = nil, &block)
     text = capture(&block) if block_given?
     text = raw(text)
 
@@ -23,6 +23,8 @@ module EvilFront::Helpers
     end
 
     text.gsub!(/([\s ])([^\s" ]+-[^\s" ]+)([\s \.,])/, '\1<nobr>\2</nobr>\3')
+
+    text.gsub!(/(\s)-(\s)/, '\1—\2')
 
     text.gsub!(/\s«[^»]+»/) do |inside|
       flying_quotes inside[2..-2], space: inside[0]
