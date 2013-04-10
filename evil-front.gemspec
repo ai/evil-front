@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'role-rails',         '>= 1.3.1'
   s.add_dependency 'coffee-rails',       '>= 3.2.2'
   s.add_dependency 'compass-rails',      '>= 1'
+  s.add_dependency 'unicode_utils',      '>= 1.4'
   s.add_dependency 'ceaser-easing',      '>= 0.6.1'
   s.add_dependency 'jquery-rails-cdn',   '>= 0.3'
   s.add_dependency 'autoprefixer-rails', '>= 0.1'

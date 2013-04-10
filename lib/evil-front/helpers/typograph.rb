@@ -17,7 +17,7 @@ module EvilFront::Helpers
 
     tiny  = %w(ни не и но а или да как из-за про по за для на до при меж о у в
                во с со от ото из без безо к ко об обо под подо над перед передо)
-    tiny += tiny.map { |i| Evil.capitalize(i) }
+    tiny += tiny.map { |i| capitalize_first(i) }
     tiny.each do |word|
       text.gsub! " #{word} ", " #{word} " # non-break space
     end
