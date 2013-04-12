@@ -1,2 +1,8 @@
+// Stroke text by some shadow. Useful, when you white on transparent background.
+//
+//  .banner
+//    background: black(0.2)
+//    color: white
+//    +stroke-text(black)
 @mixin stroke-text($color)
   text-shadow: 1px 1px 1px $color, 1px -1px 1px $color, 1px 1px 1px $color, -1px -1px 1px $color
