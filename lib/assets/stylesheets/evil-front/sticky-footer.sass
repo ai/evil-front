@@ -1,0 +1,20 @@
+// Sticky footer, which show on bottom of screen if content height is less,
+// that screen content
+//
+//   +sticky-footer(100px)
+//
+// You can specify footer selector (`.footer-layout` by default):
+//
+//   +sticky-footer(100px, 'footer')
+@mixin sticky-footer($height, $footer: unquote(".footer-layout"))
+  html
+    position: relative
+    min-height: 100%
+  body
+    margin-bottom: $height
+  #{$footer}
+    position: absolute
+    left: 0
+    bottom: 0
+    height: $height
+    width: 100%
