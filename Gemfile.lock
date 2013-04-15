@@ -3,7 +3,6 @@ PATH
   specs:
     evil-front (0.1)
       autoprefixer-rails (>= 0.1)
-      ceaser-easing (>= 0.6.1)
       coffee-rails (>= 3.2.2)
       compass (>= 0.13.alpha.0)
       jquery-rails-cdn (>= 0.3)
@@ -49,8 +48,6 @@ GEM
     autoprefixer-rails (0.2.20130413)
       execjs
     builder (3.0.4)
-    ceaser-easing (0.6.1)
-      compass (>= 0.12.2)
     chunky_png (1.2.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
