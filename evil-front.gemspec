@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.require_path     = 'lib'
 
   s.add_dependency 'rails',              '>= 3'
-  s.add_dependency 'compass',            '>= 0.13.alpha.0'
   s.add_dependency 'uglifier',           '>= 1.3.0'
   s.add_dependency 'sass-rails',         '>= 3.2.6'
   s.add_dependency 'slim-rails',         '>= 1.1.0'
