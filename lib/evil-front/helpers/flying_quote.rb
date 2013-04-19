@@ -14,6 +14,6 @@ module EvilFront::Helpers
     text  = capture(&block).strip if block_given?
     space = options[:space] || ' '
     ('<span class="space-before-quote">' + space + '</span>' +
-     '<span class="quotes">«' + raw(text) + '»</span> ').html_safe
+     '<span class="quotes">«' + raw(text) + '»</span>').html_safe
   end
 end
