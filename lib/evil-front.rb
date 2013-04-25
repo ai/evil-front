@@ -10,6 +10,7 @@ require 'unicode_utils'
 require 'jquery-rails-cdn'
 require 'rails-sass-images'
 require 'autoprefixer-rails'
+require 'standalone_typograf'
 
 dir = Pathname(__FILE__).dirname.join('evil-front')
 require dir.join('version')
