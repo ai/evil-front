@@ -5,10 +5,10 @@ require 'pathname'
 
 require 'sass-rails'
 require 'slim-rails'
-require 'role-rails'
 require 'unicode_utils'
 require 'jquery-rails-cdn'
 require 'rails-sass-images'
+require 'evil-blocks-rails'
 require 'autoprefixer-rails'
 require 'standalone_typograf'
 
