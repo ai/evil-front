@@ -5,6 +5,6 @@ module EvilFront::Helpers
   #
   #   = capitalize_first post.title
   def capitalize_first(text)
-    UnicodeUtils.upcase(text[0]) + text[1..-1]
+    EvilFront::Russian.capitalize_first(text)
   end
 end
