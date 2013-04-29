@@ -34,10 +34,6 @@ module EvilFront
 
       text.gsub!(/([\s ])([^\s" ]+-[^\s" ]+)([\s \.,])/, '\1<nobr>\2</nobr>\3')
 
-      text.gsub!(/\s«[^»]+»/) do |inside|
-        flying_quotes inside[2..-2], space: inside[0]
-      end
-
       text
     end
   end

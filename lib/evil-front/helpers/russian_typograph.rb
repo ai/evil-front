@@ -35,6 +35,10 @@ module EvilFront::Helpers
     end
     processed << (isTag ? buffer : EvilFront::Russian.typograph(buffer))
 
+    processed.gsub!(/\s«[^»]+»/) do |inside|
+      flying_quotes inside[2..-2], space: inside[0]
+    end
+
     processed.html_safe
   end
 end
