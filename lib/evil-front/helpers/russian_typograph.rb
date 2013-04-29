@@ -21,7 +21,12 @@ module EvilFront::Helpers
 
     text.chars.each do |char|
       if char == '<' and not isTag
-        processed << EvilFront::Russian.typograph(buffer)
+        buffer = EvilFront::Russian.typograph(buffer)
+        buffer.gsub!(/\s«[^»]+»/) do |inside|
+          flying_quotes inside[2..-2], space: inside[0]
+        end
+
+        processed << buffer
         buffer = char
         isTag  = true
       elsif char == '>' and isTag
@@ -34,10 +39,6 @@ module EvilFront::Helpers
       end
     end
     processed << (isTag ? buffer : EvilFront::Russian.typograph(buffer))
-
-    processed.gsub!(/\s«[^»]+»/) do |inside|
-      flying_quotes inside[2..-2], space: inside[0]
-    end
 
     processed.html_safe
   end
