@@ -1,0 +1,13 @@
+// Add normal state, to prevent hover on touched elements
+//
+//   a
+//     display: inline-block
+//     +no-hover
+//       color: black
+//     &:hover
+//       color: gray
+//     &:active, &.is-tapped
+//       background: black
+@mixin no-hover
+  &, &.was-tapped:hover, &.was-tapped:active
+    @content
