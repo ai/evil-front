@@ -1,0 +1,9 @@
+// Disable transition animation for `.is-tapped` and `:active` states
+// (because, this states is too fast).
+//
+//   +no-tapped-transitions
+//
+// To enable `.is-tapped` state, you need to require `evil-front/tappable` JS.
+@mixin no-tapped-transitions
+  .is-tapped, :active
+    transition: none !important
