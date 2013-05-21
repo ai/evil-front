@@ -1,0 +1,11 @@
+// Disable standard browser tap highlight and transitions for hover and tapped
+// states.
+//
+//   +styled-taps
+//
+// Must be used with `evil-front/tappable` JS and `no-hover` Sass mixin.
+@mixin styled-taps
+  .is-tapped, :active
+    transition: none !important
+  body
+    +no-tap-highlight
