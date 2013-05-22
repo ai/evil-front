@@ -3,8 +3,8 @@
 // Add events to add special class on touch events. It will much faster, than
 // `:hover` selector.
 //
-// By default it add listener to all links on body. But you can add it to
-// any elements:
+// By default it add listener to all links and inputs on body.
+// But you can add it to any elements:
 //
 //   $('.pseudolink').evil.tappable();
 //
@@ -41,6 +41,6 @@
     });
 
     evil.doc.ready(function ($) {
-        evil.body.evil.tappable('a');
+        evil.body.evil.tappable('a, input');
     });
 })();
