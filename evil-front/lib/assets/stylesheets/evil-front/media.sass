@@ -1,17 +1,23 @@
 // Shortcuts for CSS Media Queries
 
+@function to-px($var)
+  @if unitless($var)
+    @return $var * 1px
+  @else
+    @return $var
+
 @mixin max-width($width)
-  @media all and (max-width: $width * 1px)
+  @media all and (max-width: to-px($width))
     @content
 
 @mixin min-width($width)
-  @media all and (min-width: $width  * 1px)
+  @media all and (min-width: to-px($width))
     @content
 
 @mixin max-height($height)
-  @media all and (max-height: $height * 1px)
+  @media all and (max-height: to-px($height))
     @content
 
 @mixin min-height($height)
-  @media all and (min-height: $height * 1px)
+  @media all and (min-height: to-px($height))
     @content
