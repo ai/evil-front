@@ -16,7 +16,6 @@
 (function () {
     var start = function () {
         this.classList.add('is-tapped');
-        this.classList.add('was-tapped');
     };
     var end = function () {
         var link = $(this);
