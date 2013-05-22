@@ -7,7 +7,6 @@ module EvilFront::Helpers
   #     meta name="description" content=page.seo.description
   #     meta name="keywords"    content=page.seo.keywords
   def head_content(&block)
-    @evil_front_head ||= ''
-    @evil_front_head  += capture(&block)
+    content_for(:evil_front_head, &block)
   end
 end

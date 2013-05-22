@@ -16,7 +16,7 @@ module EvilFront::Helpers
   def head_tag(options = { }, &block)
     head  = tag(:meta, charset: 'UTF-8')
     head += capture(&block) if block_given?
-    head += @evil_front_head
+    head += content_for(:evil_front_head)
 
     options[:statistics] ||= true
     if options[:statistics] and Rails.env.production?
