@@ -8,12 +8,13 @@
 // Don’t forget about `no-hover` and `styled-taps` Sass mixins.
 evil.doc.ready(function () {
     evil.body.on('touchstart', function (e) {
-        e.target.classList.add('is-tapped');
-        e.target.classList.add('was-tapped');
+        var target = $(e.target);
+        target.add(target.closest('a')).addClass('is-tapped was-tapped');
     });
     evil.body.on('touchend touchmove', function (e) {
         setTimeout(function () {
-            $(e.target).
+            var target = $(e.target);
+            target.add(target.closest('a')).
                 removeClass('is-tapped').
                 addClass('was-tapped').
                 one('mouseenter', function () {

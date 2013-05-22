@@ -10,6 +10,6 @@ module EvilFront::Helpers
   #
   #   +import-ruble("PT Sane, sans-serif", $regular: inline)
   def ruble
-    '<span class="ruble">Р</span>'.html_safe
+    EvilFront.html_safe('<span class="ruble">Р</span>')
   end
 end

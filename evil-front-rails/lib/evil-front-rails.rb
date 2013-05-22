@@ -1,5 +1,11 @@
 # encoding: utf-8
-# Integrate with Rails and set defaults for Rails application config.
+# Load all neccessary libraries and files.
+
+require 'evil-front'
+
+require 'sass-rails'
+require 'slim-rails'
+require 'jquery-rails-cdn'
 
 module EvilFront
   class Railtie < Rails::Railtie
@@ -26,9 +32,5 @@ module EvilFront
     initializer 'evil_front.action_view' do
       ActiveSupport.on_load(:action_view) { include Helpers }
     end
-  end
-
-  # Enable `lib/assets/` and `vendor/assets/`.
-  class Engine < ::Rails::Engine
   end
 end

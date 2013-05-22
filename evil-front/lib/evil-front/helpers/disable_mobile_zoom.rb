@@ -8,7 +8,8 @@ module EvilFront::Helpers
   #     head
   #       = disable_mobile_zoom
   def disable_mobile_zoom
-    ('<meta name="viewport" content="width=device-width, initial-scale=1.0, ' +
-      'maximum-scale=1.0, user-scalable=0" />').html_safe
+    html = '<meta name="viewport" content="width=device-width, ' +
+             'initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />'
+    EvilFront.html_safe(html)
   end
 end

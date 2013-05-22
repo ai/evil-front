@@ -40,6 +40,6 @@ module EvilFront::Helpers
     end
     processed << (isTag ? buffer : EvilFront::Russian.typograph(buffer))
 
-    processed.html_safe
+    EvilFront.html_safe(processed)
   end
 end

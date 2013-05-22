@@ -13,7 +13,8 @@ module EvilFront::Helpers
   def flying_quotes(text = nil, options = { }, &block)
     text  = capture(&block).strip if block_given?
     space = options[:space] || ' '
-    ('<span class="space-before-quote">' + space + '</span>' +
-     '<span class="quotes">«' + raw(text) + '»</span>').html_safe
+    html  = '<span class="space-before-quote">' + space + '</span>' +
+            '<span class="quotes">«' + raw(text) + '»</span>'
+    EvilFront.html_safe(html)
   end
 end
