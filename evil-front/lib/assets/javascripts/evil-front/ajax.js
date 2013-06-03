@@ -1,5 +1,13 @@
 //= evil-front/jquery
 
+// Change selected form to be sent by AJAX.
+//
+//   $('form').evil.ajax
+//     success:      -> message('success')
+//     error: (text) -> message('error' + text)
+//
+// While AJAX is loading, form will has `is-submiting` class.
+// Don’t forget to show loader.
 evil.$.extend('ajax', function (opts) {
     if ( !opts ) {
         opts = { };
