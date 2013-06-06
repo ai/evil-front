@@ -29,7 +29,8 @@ module EvilFront
                  во с со от ото из без безо к ко об обо под подо над перед передо)
       tiny += tiny.map { |i| capitalize_first(i) }
       tiny.each do |word|
-        text.gsub! " #{word} ", " #{word} " # non-break space
+        regexp = Regexp.new(" #{Regexp.quote word} ") # fix JRuby issue
+        text.gsub! regexp, " #{word} " # non-break space
       end
 
       text.gsub!(/([\s ])([^\s" ]+-[^\s" ]+)([\s \.,])/, '\1<nobr>\2</nobr>\3')
