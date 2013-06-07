@@ -25,9 +25,9 @@ evil.$.extend('ajax', function (opts) {
             url:  form.attr('action'),
             type: form.attr('method').toUpperCase(),
             data: form.serialize(),
-            success: function () {
+            success: function (data) {
                 if ( opts.success ) {
-                    opts.success(form);
+                    opts.success(data, form);
                 }
             },
             error: function (e) {
