@@ -31,7 +31,11 @@ evil.$.extend('ajax', function (opts) {
                 }
             },
             error: function (e) {
-                if ( e.status != 500 && opts.error ) {
+                if ( e.status == 500 ) {
+                    if ( opts.serverError ) {
+                        opts.serverError(form);
+                    }
+                } else if ( opts.error ) {
                     opts.error(e.responseText, form);
                 }
             },
