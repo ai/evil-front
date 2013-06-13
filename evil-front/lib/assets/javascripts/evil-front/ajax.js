@@ -21,6 +21,14 @@ evil.$.extend('ajax', function (opts) {
         }
         form.addClass('is-submiting');
 
+        var check = true;
+        if ( opts.submiting ) {
+            check = opts.submiting(form);
+        }
+        if ( !check ) {
+            return false;
+        }
+
         $.ajax({
             url:  form.attr('action'),
             type: form.attr('method').toUpperCase(),
