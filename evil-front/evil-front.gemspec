@@ -27,6 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'unicode_utils',       '>= 1.4'
   s.add_dependency 'rails-sass-images',   '>= 0.3'
   s.add_dependency 'evil-blocks-rails',   '>= 0.2'
-  s.add_dependency 'autoprefixer-rails',  '>= 0.4'
+  s.add_dependency 'autoprefixer-rails',  '>= 0.5'
   s.add_dependency 'standalone_typograf', '>= 2'
 end
