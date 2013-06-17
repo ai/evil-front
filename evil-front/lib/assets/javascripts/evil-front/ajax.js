@@ -6,7 +6,7 @@
 //     success:      -> message('success')
 //     error: (text) -> message('error' + text)
 //
-// While AJAX is loading, form will has `is-submiting` class.
+// While AJAX is loading, form will has `is-submitting` class.
 // Don’t forget to show loader.
 evil.$.extend('ajax', function (opts) {
     if ( !opts ) {
@@ -16,14 +16,14 @@ evil.$.extend('ajax', function (opts) {
     this.submit(function () {
         var form = $(this);
 
-        if ( form.hasClass('is-submiting') ) {
+        if ( form.hasClass('is-submitting') ) {
             return false;
         }
-        form.addClass('is-submiting');
+        form.addClass('is-submitting');
 
         var check = true;
-        if ( opts.submiting ) {
-            check = opts.submiting(form);
+        if ( opts.submitting ) {
+            check = opts.submitting(form);
         }
         if ( !check ) {
             return false;
@@ -48,7 +48,7 @@ evil.$.extend('ajax', function (opts) {
                 }
             },
             complete: function () {
-                form.removeClass('is-submiting');
+                form.removeClass('is-submitting');
             }
         });
 
