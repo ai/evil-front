@@ -29,6 +29,14 @@ module EvilFront
     sprockets.append_path(root.join('lib/assets/stylesheets'))
     sprockets.append_path(root.join('vendor/assets/fonts'))
   end
+
+  # Install Evil Front, Autoprefixer, Rails Sass Images nd Csso to Sprockets.
+  def self.install_all(sprockets)
+    AutoprefixerRails.install(sprockets)
+    RailsSassImages.install(sprockets)
+    Csso.install(sprockets)
+    install(sprockets)
+  end
 end
 
 dir = Pathname(__FILE__).dirname.join('evil-front')
