@@ -9,6 +9,7 @@ module EvilFront::Helpers
   def standard_assets
     stylesheet_link_tag('application', media: 'all') +
       jquery_include_tag(:google) +
+      content_for(:evil_libraries) +
       javascript_include_tag('application', deferer: true)
   end
 end
