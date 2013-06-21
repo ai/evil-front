@@ -13,7 +13,11 @@ evil.$.extend('ajax', function (opts) {
         opts = { };
     }
 
-    this.submit(function () {
+    this.submit(function (event) {
+        if ( event.isPropagationStopped() ) {
+            return false;
+        }
+
         var form = $(this);
 
         if ( form.hasClass('is-submitting') ) {
