@@ -1,0 +1,8 @@
+// Shortcut to set width and height
+//
+//   +size(200, 100)
+//   +size(32)
+//   +size(50%, 10em)
+@mixin size($width, $height: $width)
+  width:  to-px($width)
+  height: to-px($height)

@@ -1,11 +1,5 @@
 // Shortcuts for CSS Media Queries
 
-@function to-px($var)
-  @if unitless($var)
-    @return $var * 1px
-  @else
-    @return $var
-
 @mixin max-width($width)
   @media all and (max-width: to-px($width))
     @content
