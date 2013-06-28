@@ -34,6 +34,7 @@ module EvilFront
   def self.install_all(sprockets)
     AutoprefixerRails.install(sprockets)
     RailsSassImages.install(sprockets)
+    EvilBlocks.install(sprockets)
     Csso.install(sprockets)
     install(sprockets)
   end
