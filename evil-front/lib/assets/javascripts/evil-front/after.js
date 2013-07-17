@@ -3,5 +3,5 @@
 //   after 1000, ->
 //     addSecond()
 window.after = function (ms, callback) {
-    setTimeout(callback, ms);
+    return setTimeout(callback, ms);
 };
