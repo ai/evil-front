@@ -12,7 +12,7 @@ module EvilFront
   end
 
   module Helpers
-    include JqueryCdn::Helpers
+    include JqueryCdn::Helpers unless defined? ::Rails
   end
 end
 
