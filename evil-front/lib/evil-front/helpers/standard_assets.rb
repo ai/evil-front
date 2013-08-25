@@ -6,10 +6,10 @@ module EvilFront::Helpers
   #   html
   #     head
   #       = standard_assets
-  def standard_assets
+  def standard_assets(attributes = { })
     stylesheet_link_tag('application', media: 'all') +
-      include_jquery(defer: true) +
+      include_jquery(attributes) +
       content_for(:evil_libraries) +
-      javascript_include_tag('application', defer: true)
+      javascript_include_tag('application', attributes)
   end
 end
