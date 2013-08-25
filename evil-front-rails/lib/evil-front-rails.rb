@@ -5,7 +5,6 @@ require 'evil-front'
 
 require 'sass-rails'
 require 'slim-rails'
-require 'jquery-rails-cdn'
 
 module EvilFront
   class Railtie < Rails::Railtie
