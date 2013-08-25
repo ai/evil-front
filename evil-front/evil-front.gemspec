@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass',                '>= 3.2.9'
   s.add_dependency 'slim',                '>= 1.3.9'
   s.add_dependency 'csso-rails',          '>= 0.3'
+  s.add_dependency 'jquery-cdn',          '>= 1'
   s.add_dependency 'coffee-script',       '>= 2.2.0'
   s.add_dependency 'unicode_utils',       '>= 1.4'
   s.add_dependency 'rails-sass-images',   '>= 0.3'

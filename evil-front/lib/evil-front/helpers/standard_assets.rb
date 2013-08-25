@@ -8,8 +8,8 @@ module EvilFront::Helpers
   #       = standard_assets
   def standard_assets
     stylesheet_link_tag('application', media: 'all') +
-      jquery_include_tag(:google) +
+      include_jquery(defer: true) +
       content_for(:evil_libraries) +
-      javascript_include_tag('application', deferer: true)
+      javascript_include_tag('application', defer: true)
   end
 end

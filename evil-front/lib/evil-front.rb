@@ -8,6 +8,7 @@ require 'slim'
 require 'uglifier'
 require 'sprockets'
 require 'csso-rails'
+require 'jquery-cdn'
 require 'coffee_script'
 require 'rails-sass-images'
 require 'evil-blocks-rails'
@@ -36,6 +37,7 @@ module EvilFront
     AutoprefixerRails.install(sprockets)
     RailsSassImages.install(sprockets)
     EvilBlocks.install(sprockets)
+    JqueryCdn.install(sprockets)
     Csso.install(sprockets)
     install(sprockets)
   end

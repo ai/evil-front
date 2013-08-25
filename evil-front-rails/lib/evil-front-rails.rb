@@ -20,8 +20,7 @@ module EvilFront
         Dir[Rails.root.join('app/assets/*/*.{js,css,coffee,sass,scss}*')].
         map { |i| File.basename(i).sub(/(\.js)?\.coffee$/, '.js') }.
         map { |i| File.basename(i).sub(/(\.css)?\.(sass|scss)$/, '.css') }.
-        reject { |i| i =~ /^application\.(js|css)$/ } +
-        ['jquery.js']
+        reject { |i| i =~ /^application\.(js|css)$/ }
 
       # Sass debug in Chrome
       if Rails.env.development?
