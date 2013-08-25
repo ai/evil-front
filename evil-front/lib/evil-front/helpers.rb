@@ -12,6 +12,7 @@ module EvilFront
   end
 
   module Helpers
+    include JqueryCdn::Helpers
   end
 end
 
