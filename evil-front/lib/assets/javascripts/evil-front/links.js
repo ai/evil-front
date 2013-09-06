@@ -1,3 +1,4 @@
+//= require evil-front/core
 // Prevent default in AJAX link with only # in href
 
 evil.doc.ready(function() {
