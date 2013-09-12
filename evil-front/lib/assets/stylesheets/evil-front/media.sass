@@ -8,10 +8,18 @@
   @media all and (min-width: to-px($width))
     @content
 
+@mixin range-width($min-width, $max-width)
+  @media all and (min-width: to-px($min-width)) and (max-width: to-px($max-width))
+    @content
+
 @mixin max-height($height)
   @media all and (max-height: to-px($height))
     @content
 
 @mixin min-height($height)
   @media all and (min-height: to-px($height))
+    @content
+
+@mixin range-height($min-height, $max-height)
+  @media all and (min-height: to-px($min-height)) and (max-height: to-px($max-height))
     @content
