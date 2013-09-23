@@ -18,6 +18,8 @@ module EvilFront
     #
     #   EvilFront::Russian.typograph(article)
     def self.typograph(text)
+      return text if text.nil? or text.empty?
+
       typograf = StandaloneTypograf::Typograf.new(text)
       typograf.dasherize
       typograf.signs
@@ -25,8 +27,9 @@ module EvilFront
       typograf.dots
       text = typograf.endash
 
-      tiny  = %w(ни не и но а или да как из-за про по за для на до при меж о у в
-                 во с со от ото из без безо к ко об обо под подо над перед передо)
+      tiny = %w(ни не и но а или да как из-за про по за для
+                на до при меж о у в во с со от ото из без
+                безо к ко об обо под подо над перед передо)
       tiny += tiny.map { |i| capitalize_first(i) }
       tiny.each do |word|
         regexp = Regexp.new(" #{Regexp.quote word} ") # fix JRuby issue
@@ -42,15 +45,18 @@ module EvilFront
     #
     #   EvilFront::Russian.typograph_html(article.html)
     def self.typograph_html(html)
+      return html if html.nil? or html.empty?
+
       html.split('<').map { |text|
         tag, text = text.split('>', 2)
 
         if text
           text = typograph(text)
           text.gsub!(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }
+          [tag, text].join('>')
+        else
+          [tag].join('>')
         end
-
-        [tag, text].join('>')
       }.join('<')
     end
 
