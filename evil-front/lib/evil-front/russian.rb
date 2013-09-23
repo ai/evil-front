@@ -37,5 +37,28 @@ module EvilFront
 
       text
     end
+
+    # Like `typograph`, but process only text nodes in HTML.
+    #
+    #   EvilFront::Russian.typograph_html(article.html)
+    def self.typograph_html(html)
+      html.split('<').map { |text|
+        tag, text = text.split('>', 2)
+
+        if text
+          text = typograph(text)
+          text.gsub!(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }
+        end
+
+        [tag, text].join('>')
+      }.join('>')
+    end
+
+    # Mark quotes to move first quote before the text line.
+    def self.flying_quotes(text, options = { })
+      space = options[:space] || ' '
+      '<span class="space-before-quote">' + space + '</span>' +
+      '<span class="quotes">«' + text + '»</span>'
+    end
   end
 end

@@ -11,10 +11,8 @@ module EvilFront::Helpers
   #     a href=course.url
   #       = course.name
   def flying_quotes(text = nil, options = { }, &block)
-    text  = capture(&block).strip if block_given?
-    space = options[:space] || ' '
-    html  = '<span class="space-before-quote">' + space + '</span>' +
-            '<span class="quotes">«' + raw(text) + '»</span>'
-    EvilFront.html_safe(html)
+    text = capture(&block).strip if block_given?
+    text = EvilFront::Russian.flying_quotes(raw(text), options)
+    EvilFront.html_safe(text)
   end
 end
