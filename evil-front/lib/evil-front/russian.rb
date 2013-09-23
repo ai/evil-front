@@ -51,7 +51,7 @@ module EvilFront
         end
 
         [tag, text].join('>')
-      }.join('>')
+      }.join('<')
     end
 
     # Mark quotes to move first quote before the text line.
