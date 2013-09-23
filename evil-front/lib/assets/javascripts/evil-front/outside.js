@@ -8,11 +8,11 @@
         var name = '.evil-outside-' + lastId;
         lastId  += 1;
 
-        evil.body.on('click' + name + ' focus' + name, function(e) {
+        $('html').on('click' + name + ' focus' + name, function(e) {
             var el = $(e.target);
             if ( !el.closest(selector).length ) {
                 callback();
-                evil.body.off(name);
+                $('html').off(name);
             }
         })
     });
