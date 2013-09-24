@@ -69,24 +69,24 @@ Gem load my must-have tools:
 
 * `black(alpha)` and `white(alpha)` shortcut
   [functions](evil-front/lib/assets/stylesheets/evil-front/colors.sass).
-* [Variables](evil-front/lib/assets/stylesheets/evil-front/easings.sass)
-  with [easings](http://easings.net/).
-* [+flying-quotes](evil-front/lib/assets/stylesheets/evil-front/flying-quotes.sass)
-  mixin to enable flying quotes helper.
 * [+import-ruble](evil-front/lib/assets/stylesheets/evil-front/import-ruble.sass)
   mixin to enable `ruble` helper.
+* [+flying-quotes](evil-front/lib/assets/stylesheets/evil-front/flying-quotes.sass)
+  mixin to enable flying quotes helper.
 * [+no-hover](evil-front/lib/assets/stylesheets/evil-front/no-hover.sass) and
   [+styled-taps](evil-front/lib/assets/stylesheets/evil-front/styled-taps.sass)
   mixin to works with hover/tap styles on touch devices.
+* [Variables](evil-front/lib/assets/stylesheets/evil-front/easings.sass)
+  with [easings](http://easings.net/).
 * CSS Media Queries
   [shortcuts](evil-front/lib/assets/stylesheets/evil-front/media.sass).
-* Compact and nice
 * [+stroke-text(color)](evil-front/lib/assets/stylesheets/evil-front/stroke-text.sass)
   shortuct to add text shadow for every side of text.
 * [+height(size)](evil-front/lib/assets/stylesheets/evil-front/height.sass)
   shortcut to set `height` and `line-height` properties.
 * [+size(width, height)](evil-front/lib/assets/stylesheets/evil-front/size.sass)
   shortcut.
+* Compact and nice
   [+sticky-footer](evil-front/lib/assets/stylesheets/evil-front/sticky-footer.sass)
   mixin.
 * [+clearfix](evil-front/lib/assets/stylesheets/evil-front/clearfix.sass)
@@ -98,12 +98,12 @@ Gem load my must-have tools:
   and
   [every(ms, callback)](evil-front/lib/assets/javascripts/evil-front/every.js)
   syntax sugars to clean up `setTimeout` in CoffeeScript.
+* [$.fn.evil.outside](evil-front/lib/assets/javascripts/evil-front/outside.js)
+  to listen click outside element.
 * [$.fn.evil.ajax(opts)](evil-front/lib/assets/javascripts/evil-front/ajax.js)
   to create AJAX forms.
 * [evil.queue(name, callback)](evil-front/lib/assets/javascripts/evil-front/queue.js)
   to synchronizate animations.
-* [$.fn.evil.outside](evil-front/lib/assets/javascripts/evil-front/outside.js)
-  to listen click outside element.
 * [Script](evil-front/lib/assets/javascripts/evil-front/tappable.js)
   to enable tapped styles for touch devices.
 * [Script](evil-front/lib/assets/javascripts/evil-front/detect-3d.js)
