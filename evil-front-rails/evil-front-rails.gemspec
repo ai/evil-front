@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.author   = 'Andrey "A.I." Sitnik'
   s.email    = 'andrey@sitnik.ru'
   s.homepage = 'https://github.com/ai/evil-front'
+  s.license  = 'MIT'
 
   s.files            = `git ls-files`.split("\n")
   s.extra_rdoc_files = ['README.md', 'LICENSE']
