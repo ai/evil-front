@@ -36,6 +36,16 @@ Gem load my must-have tools:
 
 ## Helpers
 
+### Russian typography
+
+* [russian_typograph](evil-front/lib/evil-front/helpers/russian_typograph.rb)
+  to add real symbols (like Russian quotes, em-dash), flying quotes,
+  non-break spaces.
+* [ruble](evil-front/lib/evil-front/helpers/ruble.rb) to insert symbol
+  for Russian currency.
+* [capitalize_first](evil-front/lib/evil-front/helpers/capitalize_first.rb)
+  to capitalize only first letter.
+
 ### Head Tags
 
 * [title](evil-front/lib/evil-front/helpers/title.rb) to set page title
@@ -50,16 +60,6 @@ Gem load my must-have tools:
 * [disable_mobile_zoom](evil-front/lib/evil-front/helpers/disable_mobile_zoom.rb)
   shortcut for common viewport usage.
 
-### Russian typography
-
-* [russian_typograph](evil-front/lib/evil-front/helpers/russian_typograph.rb)
-  to add real symbols (like Russian quotes, em-dash), flying quotes,
-  non-break spaces.
-* [capitalize_first](evil-front/lib/evil-front/helpers/capitalize_first.rb)
-  to capitalize only first letter.
-* [ruble](evil-front/lib/evil-front/helpers/ruble.rb) to insert symbol
-  for Russian currency.
-
 ### Other
 
 * [tel](evil-front/lib/evil-front/helpers/tel.rb) to insert telephone as link
@@ -69,27 +69,28 @@ Gem load my must-have tools:
 
 * `black(alpha)` and `white(alpha)` shortcut
   [functions](evil-front/lib/assets/stylesheets/evil-front/colors.sass).
-* [+clearfix](evil-front/lib/assets/stylesheets/evil-front/clearfix.sass)
-  by `::after` with `clear: both`.
 * [Variables](evil-front/lib/assets/stylesheets/evil-front/easings.sass)
   with [easings](http://easings.net/).
 * [+flying-quotes](evil-front/lib/assets/stylesheets/evil-front/flying-quotes.sass)
   mixin to enable flying quotes helper.
-* [+height(size)](evil-front/lib/assets/stylesheets/evil-front/height.sass)
-  shortcut to set `height` and `line-height` properties.
 * [+import-ruble](evil-front/lib/assets/stylesheets/evil-front/import-ruble.sass)
   mixin to enable `ruble` helper.
-* CSS Media Queries shortcuts.
-* [+size(width, height)](evil-front/lib/assets/stylesheets/evil-front/size.sass)
-  shortcut.
-* Compact and nice
-  [+sticky-footer](evil-front/lib/assets/stylesheets/evil-front/sticky-footer.sass)
-  mixin.
-* [+stroke-text(color)](evil-front/lib/assets/stylesheets/evil-front/stroke-text.sass)
-  shortuct to add text shadow for every side of text.
 * [+no-hover](evil-front/lib/assets/stylesheets/evil-front/no-hover.sass) and
   [+styled-taps](evil-front/lib/assets/stylesheets/evil-front/styled-taps.sass)
   mixin to works with hover/tap styles on touch devices.
+* CSS Media Queries
+  [shortcuts](evil-front/lib/assets/stylesheets/evil-front/media.sass).
+* Compact and nice
+* [+stroke-text(color)](evil-front/lib/assets/stylesheets/evil-front/stroke-text.sass)
+  shortuct to add text shadow for every side of text.
+* [+height(size)](evil-front/lib/assets/stylesheets/evil-front/height.sass)
+  shortcut to set `height` and `line-height` properties.
+* [+size(width, height)](evil-front/lib/assets/stylesheets/evil-front/size.sass)
+  shortcut.
+  [+sticky-footer](evil-front/lib/assets/stylesheets/evil-front/sticky-footer.sass)
+  mixin.
+* [+clearfix](evil-front/lib/assets/stylesheets/evil-front/clearfix.sass)
+  by `::after` with `clear: both`.
 
 ## JS helpers
 
