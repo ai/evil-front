@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.license  = 'MIT'
 
   s.files            = `git ls-files`.split("\n")
-  s.extra_rdoc_files = ['README.md', 'LICENSE']
+  s.extra_rdoc_files = ['LICENSE']
   s.require_path     = 'lib'
 
   s.add_dependency 'evil-front',   EvilFront::VERSION.dup
