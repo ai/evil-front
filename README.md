@@ -4,9 +4,9 @@ Helpers, shortcuts and my common frontend workflows
 from [Evil Martians](http://evilmartians.com/).
 
 Project is separated to 2 gems:
-* [Evil Front](evil-front/), which doesn’t depend on Rails and
-  don’t change anything if you no ask.
-* [Evil Front Rails](evil-front-rails/), which change Rails settings to create
+* [Evil Front](evil-front/) change settings only if you ask and doesn’t depend
+  on Rails.
+* [Evil Front Rails](evil-front-rails/) changes Rails settings to create
   my common frontend workflow by single code line.
 
 ## Workflow
@@ -36,7 +36,7 @@ Gem load my must-have tools:
 
 ## Helpers
 
-### Russian typography
+### Russian Typography
 
 * [russian_typograph](evil-front/lib/evil-front/helpers/russian_typograph.rb)
   to add real symbols (like Russian quotes, em-dash), flying quotes,
@@ -92,7 +92,7 @@ Gem load my must-have tools:
 * [+clearfix](evil-front/lib/assets/stylesheets/evil-front/clearfix.sass)
   by `::after` with `clear: both`.
 
-## JS helpers
+## JS Helpers
 
 * [after(ms, callback)](evil-front/lib/assets/javascripts/evil-front/after.js)
   and
