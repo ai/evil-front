@@ -98,6 +98,9 @@ Gem load my must-have tools:
   and
   [every(ms, callback)](evil-front/lib/assets/javascripts/evil-front/every.js)
   syntax sugars to clean up `setTimeout` in CoffeeScript.
+* [Script](evil-front/lib/assets/javascripts/evil-front/links.js) to prevent
+  default behavior for AJAX links with `href="#"` to clean event listeners from
+  noisy `return false`.
 * [$.fn.evil.outside](evil-front/lib/assets/javascripts/evil-front/outside.js)
   to listen click outside element.
 * [$.fn.evil.ajax(opts)](evil-front/lib/assets/javascripts/evil-front/ajax.js)
