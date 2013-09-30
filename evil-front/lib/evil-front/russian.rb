@@ -49,13 +49,21 @@ module EvilFront
 
       html.split('<').map { |text|
         tag, text = text.split('>', 2)
+        tag, text = text, tag unless text
 
-        if text
-          text = typograph(text)
-          text.gsub!(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }
-          [tag, text].join('>')
+        text = typograph(text)
+        text.gsub!(/\s?«[^»]+»/) do |i|
+          if i[0] == '«'
+            flying_quotes i[1..-2], space: ''
+          else
+            flying_quotes i[2..-2], space: i[0]
+          end
+        end
+
+        if tag
+          [tag, text].split('>')
         else
-          [tag].join('>')
+          text
         end
       }.join('<')
     end
@@ -63,7 +71,7 @@ module EvilFront
     # Mark quotes to move first quote before the text line.
     def self.flying_quotes(text, options = { })
       space = options[:space] || ' '
-      '<span class="space-before-quote">' + space + '</span>' +
+      (space == '' ? '' : "<span class='space-before-quote'>#{space}</span>") +
       '<span class="quotes">«' + text + '»</span>'
     end
   end
