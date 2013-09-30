@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'unicode_utils'
+require 'nokogiri'
 require 'standalone_typograf'
 
 module EvilFront
@@ -47,25 +48,24 @@ module EvilFront
     def self.typograph_html(html)
       return html if html.nil? or html.empty?
 
-      html.split('<').map { |text|
-        tag, text = text.split('>', 2)
-        tag, text = text, tag unless text
+      if html.include? '<'
+        nodes = Nokogiri::HTML::DocumentFragment.parse(html)
+        typograph_node! nodes
+        nodes.to_html
+      else
+        auto_flying_quotes(typograph(html))
+      end
+    end
 
-        text = typograph(text)
-        text.gsub!(/\s?«[^»]+»/) do |i|
-          if i[0] == '«'
-            flying_quotes i[1..-2], space: ''
-          else
-            flying_quotes i[2..-2], space: i[0]
-          end
-        end
-
-        if tag
-          [tag, text].split('>')
+    # Find quotes in text and make them flying
+    def self.auto_flying_quotes(text)
+      text.gsub(/\s?«[^»]+»/) do |i|
+        if i[0] == '«'
+          flying_quotes i[1..-2], space: ''
         else
-          text
+          flying_quotes i[2..-2], space: i[0]
         end
-      }.join('<')
+      end
     end
 
     # Mark quotes to move first quote before the text line.
@@ -73,6 +73,17 @@ module EvilFront
       space = options[:space] || ' '
       (space == '' ? '' : "<span class='space-before-quote'>#{space}</span>") +
       '<span class="quotes">«' + text + '»</span>'
+    end
+
+    private
+
+    # Recursively pply typography to Nokogiri nodes
+    def self.typograph_node!(node)
+      if node.is_a? Nokogiri::XML::Text
+        node.content = auto_flying_quotes(typograph(node.content))
+      elsif node.respond_to? :children
+        node.children.each { |child| typograph_node!(child) }
+      end
     end
   end
 end

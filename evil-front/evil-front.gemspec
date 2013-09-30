@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass',                '>= 3.2.9'
   s.add_dependency 'slim',                '>= 1.3.9'
   s.add_dependency 'uglifier',            '>= 2.1.1'
+  s.add_dependency 'nokogiri',            '>= 1'
   s.add_dependency 'sprockets',           '>= 1'
   s.add_dependency 'csso-rails',          '>= 0.3'
   s.add_dependency 'jquery-cdn',          '>= 1'
