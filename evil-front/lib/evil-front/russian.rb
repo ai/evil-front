@@ -59,13 +59,8 @@ module EvilFront
 
     # Find quotes in text and make them flying
     def self.auto_flying_quotes(text)
-      text.gsub(/\s?«[^»]+»/) do |i|
-        if i[0] == '«'
-          flying_quotes i[1..-2], space: ''
-        else
-          flying_quotes i[2..-2], space: i[0]
-        end
-      end
+      text.gsub(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }.
+           gsub(/^«[^»]+»/)  { |i| flying_quotes i[1..-2], space: '' }
     end
 
     # Mark quotes to move first quote before the text line.
