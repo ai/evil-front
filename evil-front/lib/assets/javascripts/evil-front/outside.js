@@ -4,14 +4,14 @@
     var lastId = 0;
 
     evil.$.extend('outside', function (callback) {
-        var selector = this.selector;
-        var name = '.evil-outside-' + lastId;
-        lastId  += 1;
+        var parent = this;
+        var name   = '.evil-outside-' + lastId;
+        lastId    += 1;
 
         var set = function () {
             $('html').on('click' + name + ' focus' + name, function(e) {
                 var el = $(e.target);
-                if ( !el.closest(selector).length ) {
+                if ( !el.closest(parent).length ) {
                     callback();
                     $('html').off(name);
                 }
