@@ -1,29 +1,40 @@
 //= require evil-front/jquery
 
 (function() {
-    var lastId = 0;
-
     evil.$.extend('outside', function (callback) {
         var parent = this;
-        var name   = '.evil-outside-' + lastId;
-        lastId    += 1;
 
-        var set = function () {
-            $('html').on('click' + name + ' focus' + name, function(e) {
-                var el = $(e.target);
-                if ( !el.closest(parent).length ) {
-                    callback();
-                    $('html').off(name);
-                }
-            });
-        }
-        setTimeout(set, 10);
-
-        return {
-            off: function () {
-                $('html').off('click' + name + ' focus' + name);
+        var event = function(e) {
+            var el = $(e.target);
+            if ( !el.closest(parent).length ) {
+                callback();
+                off();
             }
         };
+
+        if ( document.body.addEventListener ) {
+            var set = function () {
+                document.body.addEventListener('click', event, true);
+                document.body.addEventListener('focus', event, true);
+            }
+            var off = function () {
+                document.body.removeEventListener('click', event, true);
+                document.body.removeEventListener('focus', event, true);
+            };
+
+        } else {
+            var name = '.evil-outside-' + (new Date()).valueOf();
+
+            var set = function () {
+                evil.body.on('click' + name + ' focus' + name, event);
+            }
+            var off = function () {
+                evil.body.off(name);
+            };
+        }
+
+        setTimeout(set, 10);
+        return off;
     });
 
 })();
