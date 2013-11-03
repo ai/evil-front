@@ -21,12 +21,7 @@ module EvilFront
     def self.typograph(text)
       return text if text.nil? or text.empty?
 
-      typograf = StandaloneTypograf::Typograf.new(text)
-      typograf.dasherize
-      typograf.signs
-      typograf.quotes
-      typograf.dots
-      text = typograf.endash
+      text = StandaloneTypograf::Typograf.new(text).prepare
 
       tiny = %w(ни не и но а или да как из-за про по за для
                 на до при меж о у в во с со от ото из без
