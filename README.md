@@ -11,6 +11,9 @@ Project is separated to 2 gems:
 * [Evil Front Rails](evil-front-rails/) changes Rails settings to create
   my common frontend workflow by single code line.
 
+You can safely use Evil Front Core, but 2 other gems has side effects,
+so I recommend to use them only on new projects.
+
 ## Workflow
 
 Gem load my must-have tools:
