@@ -1,17 +1,29 @@
 # encoding: utf-8
 
 require 'rubygems'
+require 'bundler/setup'
 
-begin
-  require 'bundler/setup'
-  Bundler::GemHelper.install_tasks
-rescue LoadError
-  puts "Bundler not available. Install it with: gem install bundler"
+GEMS = %w(evil-front-core)
+
+require 'rspec/core/rake_task'
+
+class SubgemSpecTask < RSpec::Core::RakeTask
+  attr_accessor :gem
+
+  def initialize(gem)
+    @gem = gem
+    super("spec_#{@gem}")
+  end
+
+  def desc(text); end # Monkey  patch to hide task desc
+
+  def pattern
+    "#{@gem}/spec{,/*/**}/*_spec.rb"
+  end
 end
 
-task :clobber_package do
-  rm_r 'pkg' rescue nil
-end
+GEMS.each { |gem| SubgemSpecTask.new(gem) }
 
-desc 'Delete all generated files'
-task :clobber => [:clobber_package]
+desc 'Run all specs'
+task :spec => (GEMS.map { |i| "spec_#{i}" })
+task :default => :spec
