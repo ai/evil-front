@@ -60,19 +60,23 @@ module EvilFront
 
     # Mark quotes to move first quote before the text line.
     def self.flying_quotes(text, options = { })
-      space = options[:space] || ' '
-      (space == '' ? '' : "<span class='space-before-quote'>#{space}</span>") +
-      '<span class="quotes">«' + text + '»</span>'
+      sp = options[:space] || ' '
+      sp = "<span class=\"space-before-quote\">#{sp}</span>" if sp != ''
+      "#{ sp }<span class=\"quotes\">«#{ text }»</span>"
     end
 
     private
 
-    # Recursively pply typography to Nokogiri nodes
+    # Recursively apply typography to Nokogiri nodes
     def self.typograph_node!(node)
-      if node.is_a? Nokogiri::XML::Text
-        node.content = auto_flying_quotes(typograph(node.content))
-      elsif node.respond_to? :children
-        node.children.each { |child| typograph_node!(child) }
+      return if node.name == 'code'
+
+      node.children.each do |child|
+        if child.is_a? Nokogiri::XML::Text
+          child.replace( auto_flying_quotes(typograph(node.content)) )
+        else
+          typograph_node! child
+        end
       end
     end
   end

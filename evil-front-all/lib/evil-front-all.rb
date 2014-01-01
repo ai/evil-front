@@ -19,6 +19,8 @@ module EvilFront
     JqueryCdn.install(sprockets)
     Csso.install(sprockets)
     install(sprockets)
+
+    EvilFront.set_slim_options!
   end
 
   unless defined? ::Rails
