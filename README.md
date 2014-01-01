@@ -7,41 +7,20 @@ Project is separated to 2 gems:
 * [Evil Front Core](evil-front-core/) contains only helper and doesn’t change
   application environment.
 * [Evil Front All](evil-front-all/) load workflows gems: Autoprefixer, Csso,
-  JqueryCdn, Evil Blocks, Uglifier.
-* [Evil Front Rails](evil-front-rails/) changes Rails settings to create
-  my common frontend workflow by single code line.
+  Slim, JqueryCdn, Evil Blocks, Uglifier.
+* [Evil Front Rails](evil-front-rails/) load workflow gems and changes Rails
+  settings to create my common frontend workflow by single code line.
 
 You can safely use Evil Front Core, but 2 other gems has side effects,
 so I recommend to use them only on new projects.
 
-## Workflow
-
-Gem load my must-have tools:
-* [Sass](http://sass-lang.com/) to write pretty styles.
-* [Slim](http://slim-lang.com/) to write pretty views.
-* [CoffeeScript](http://coffeescript.org/) to write pretty scripts.
-* [Uglifier](https://github.com/lautis/uglifier) to compress JS.
-* [Csso](http://bem.info/tools/csso/) to compress CSS.
-* [Sprockets](https://github.com/sstephenson/sprockets) to work with assets
-  in best way.
-* [JqueryCdn](https://github.com/ai/jquery-cdn) to load latest jQuery
-  in best way.
-* [Autoprefixer](https://github.com/ai/autoprefixer) to add CSS3 prefixes.
-* [Rails Sass Images](https://github.com/ai/rails-sass-images) to inline images
-  and get their sizes from Sass.
-* [Evil Blocks](https://github.com/ai/evil-blocks) to manage your scripts.
-
-## Rails Settings
-
-* Autoprecompile: add to precompile all files in root of
-  `app/assets/stylesheets` and `app/assets/javascripts`.
-  Store loadable files only in subdirs.
-* Disable creating empty script, style and helper files
-  on controller generation.
-
 ## Helpers
 
-### Russian Typography
+Evil Front Core gem contain assets and view helpers:
+
+### View Helpers
+
+#### Russian Typography
 
 * [russian_typograph](evil-front-core/lib/evil-front/helpers/russian_typograph.rb)
   to add real symbols (like Russian quotes, em-dash), flying quotes,
@@ -51,7 +30,7 @@ Gem load my must-have tools:
 * [capitalize_first](evil-front-core/lib/evil-front/helpers/capitalize_first.rb)
   to capitalize only first letter.
 
-### Head Tags
+#### Head Tags
 
 * [title](evil-front-core/lib/evil-front/helpers/title.rb) to set page title
   in view file and [title_tag](evil-front-core/lib/evil-front/helpers/title_tag.rb)
@@ -65,12 +44,12 @@ Gem load my must-have tools:
 * [disable_mobile_zoom](evil-front-core/lib/evil-front/helpers/disable_mobile_zoom.rb)
   shortcut for common viewport usage.
 
-### Other
+####  Other
 
 * [tel](evil-front-core/lib/evil-front/helpers/tel.rb) to insert telephone as link
   with `tel:` protocol.
 
-## Sass Helpers
+### Sass Helpers
 
 * `black(alpha)` and `white(alpha)` shortcut
   [functions](evil-front-core/lib/assets/stylesheets/evil-front/colors.sass).
@@ -97,7 +76,7 @@ Gem load my must-have tools:
 * [+clearfix](evil-front-core/lib/assets/stylesheets/evil-front/clearfix.sass)
   by `::after` with `clear: both`.
 
-## JS Helpers
+### JS Helpers
 
 * [after(ms, callback)](evil-front-core/lib/assets/javascripts/evil-front/after.js)
   and
@@ -120,3 +99,29 @@ Gem load my must-have tools:
   [shortcuts](evil-front-core/lib/assets/javascripts/evil-front/http.js).
 * `evil.win`, `evil.body` and `evil.doc`
   [shortcuts](evil-front-core/lib/assets/javascripts/evil-front/core.js).
+
+## Workflow
+
+Evil Front All gem loads my must-have tools:
+* [Sass](http://sass-lang.com/) to write pretty styles.
+* [Slim](http://slim-lang.com/) to write pretty views.
+* [CoffeeScript](http://coffeescript.org/) to write pretty scripts.
+* [Uglifier](https://github.com/lautis/uglifier) to compress JS.
+* [Csso](http://bem.info/tools/csso/) to compress CSS.
+* [Sprockets](https://github.com/sstephenson/sprockets) to work with assets
+  in best way.
+* [JqueryCdn](https://github.com/ai/jquery-cdn) to load latest jQuery
+  in best way.
+* [Autoprefixer](https://github.com/ai/autoprefixer) to add CSS3 prefixes.
+* [Rails Sass Images](https://github.com/ai/rails-sass-images) to inline images
+  and get their sizes from Sass.
+* [Evil Blocks](https://github.com/ai/evil-blocks) to manage your scripts.
+
+## Rails Settings
+
+Evil Front Rails gem changes default Rails settings:
+
+* **Autoprecompile** adds to precompile all files in root of
+  `app/assets/stylesheets` and `app/assets/javascripts`.
+  You should store loadable files only in subdirs.
+* **Disable assets generation** on controller and action generation.
