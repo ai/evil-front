@@ -10,10 +10,6 @@ module EvilFront
       string.to_s
     end
   end
-
-  module Helpers
-    include JqueryCdn::Helpers unless defined? ::Rails
-  end
 end
 
 dir = Pathname(__FILE__).dirname.join('helpers')

@@ -32,7 +32,7 @@ module EvilFront
         text.gsub! regexp, " #{word} " # non-break space
       end
 
-      text.gsub!(/([\s ])([^\s" ]+-[^\s" ]+)([\s \.,])/, '\1<nobr>\2</nobr>\3')
+      text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
 
       text
     end

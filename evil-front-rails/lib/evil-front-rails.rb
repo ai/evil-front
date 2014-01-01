@@ -1,7 +1,7 @@
 # encoding: utf-8
 # Load all neccessary libraries and files.
 
-require 'evil-front'
+require 'evil-front-all'
 
 require 'sass-rails'
 require 'slim-rails'
