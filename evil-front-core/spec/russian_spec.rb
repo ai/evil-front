@@ -4,7 +4,7 @@ require_relative 'spec_helper'
 
 describe EvilFront::Russian do
 
-  describe 'capitalize_first()' do
+  describe 'capitalize_first' do
 
     it 'capitalizes first letter in russian text' do
       EvilFront::Russian.capitalize_first('тест тест').should == 'Тест тест'
@@ -12,7 +12,7 @@ describe EvilFront::Russian do
 
   end
 
-  describe 'flying_quotes()' do
+  describe 'flying_quotes' do
 
     it 'inserts tags and quotes with space by default' do
       EvilFront::Russian.flying_quotes('тест').should ==
@@ -33,7 +33,7 @@ describe EvilFront::Russian do
 
   end
 
-  describe 'auto_flying_quotes()' do
+  describe 'auto_flying_quotes' do
 
     it 'replaces quotes on start' do
       EvilFront::Russian.auto_flying_quotes('«тест»').should ==
@@ -48,7 +48,7 @@ describe EvilFront::Russian do
 
   end
 
-  describe 'typograph()' do
+  describe 'typograph' do
 
     it 'changes quotes' do
       EvilFront::Russian.typograph('сказал "смотри "зорко"".').should ==
@@ -69,7 +69,7 @@ describe EvilFront::Russian do
 
   end
 
-  describe 'typograph_html()' do
+  describe 'typograph_html' do
 
     it 'typographs plain text' do
       EvilFront::Russian.typograph_html('а - б').should == 'а — б'

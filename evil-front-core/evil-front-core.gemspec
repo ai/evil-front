@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['LICENSE']
   s.require_path     = 'lib'
 
+  s.add_dependency 'i18n',                '>= 0'
   s.add_dependency 'slim',                '>= 1.3.9'
   s.add_dependency 'sass',                '>= 3.2.9'
   s.add_dependency 'nokogiri',            '>= 1'

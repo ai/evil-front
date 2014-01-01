@@ -13,7 +13,7 @@ module EvilFront::Helpers
   #     = user.profession
   def russian_typograph(text = nil, &block)
     text = capture(&block) if block_given?
-    text = raw(text)
+    text = raw(text) if respond_to? :raw
     text = EvilFront::Russian.typograph_html(text)
     EvilFront.html_safe(text)
   end
