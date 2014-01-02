@@ -1,6 +1,3 @@
-# encoding: utf-8
-# Load and initialize all helpers.
-
 module EvilFront
   # Call `html_safe` if String has this methods.
   def self.html_safe(string)

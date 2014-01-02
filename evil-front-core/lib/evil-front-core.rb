@@ -1,6 +1,3 @@
-# encoding: utf-8
-# Load all neccessary libraries and files.
-
 require 'pathname'
 
 require 'slim'

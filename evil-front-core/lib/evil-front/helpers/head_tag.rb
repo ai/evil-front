@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module EvilFront::Helpers
   # Add content from `head_content` and statistics counter in production,
   # if you set `:stats` option.

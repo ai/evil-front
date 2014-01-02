@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module EvilFront::Helpers
   # Add `application.css`, jQuery from Google CDN and `application.js`.
   #

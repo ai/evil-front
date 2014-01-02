@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module EvilFront::Helpers
   # Capitalize only first letter (like titles in Russian).
   #

@@ -1,4 +1,3 @@
-# encoding: utf-8
 # Load all neccessary libraries and files.
 
 require 'evil-front-core'

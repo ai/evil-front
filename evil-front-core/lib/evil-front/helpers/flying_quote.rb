@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module EvilFront::Helpers
   # Mark quotes to move first quote before the text line.
   #

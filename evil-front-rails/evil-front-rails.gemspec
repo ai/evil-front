@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require_relative '../evil-front-core/lib/evil-front/version'
 
 Gem::Specification.new do |s|
@@ -11,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = <<-EOF
   EOF
 
-  s.author   = 'Andrey "A.I." Sitnik'
+  s.author   = 'Andrey Sitnik'
   s.email    = 'andrey@sitnik.ru'
   s.homepage = 'https://github.com/ai/evil-front'
   s.license  = 'MIT'

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module EvilFront::Helpers
   # Insert non-break spaces and mark quotes to have nice text. Work only with
   # Russian language.

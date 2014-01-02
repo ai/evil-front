@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module EvilFront::Helpers
   # Disable user zoom in mobile browsers. You should use it only if your styles
   # are special optimized for mobile screens.
