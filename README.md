@@ -14,6 +14,9 @@ Project is separated to 2 gems:
 You can safely use Evil Front Core, but 2 other gems has side effects,
 so I recommend to use them only on new projects.
 
+Some of view helpers from Evil Front Core may require Rails, but most of them
+works in any Ruby application.
+
 ## Helpers
 
 Evil Front Core gem contain assets and view helpers:

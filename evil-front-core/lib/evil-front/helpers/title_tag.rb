@@ -17,8 +17,10 @@ module EvilFront::Helpers
   def title_tag(*site)
     @evil_front_titles ||= []
     options   = site.extract_options!
-    separator = options[:separator] || I18n.locale == :ru ? ' — ' : ' - '
+    separator = options[:separator] || (I18n.locale == :ru ? ' — ' : ' - ')
     titles    = (@evil_front_titles + site).compact
-    content_tag(:title, titles.join(separator))
+    titles    = titles.join(separator)
+    titles    = raw(titles) if respond_to? :raw
+    EvilFront.html_safe("<title>#{ titles }</title>")
   end
 end
