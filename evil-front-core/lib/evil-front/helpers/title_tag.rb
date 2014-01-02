@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'i18n'
+
 module EvilFront::Helpers
   # Return title tag with current page title. It will just join page titles
   # from `title` helper and `site` name.
