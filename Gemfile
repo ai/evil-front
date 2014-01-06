@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'rspec'
 gem 'rails', '>= 4'
+
+gem 'rspec-rails'
 
 gem 'evil-front-core',  path: 'evil-front-core/'
 gem 'evil-front-all',   path: 'evil-front-all/',   require: false

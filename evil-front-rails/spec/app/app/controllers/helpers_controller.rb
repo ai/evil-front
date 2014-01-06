@@ -1,0 +1,2 @@
+class HelpersController < ApplicationController
+end
