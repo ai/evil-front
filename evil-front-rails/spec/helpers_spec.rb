@@ -15,15 +15,15 @@ describe HelpersController, type: :controller do
     it 'generates head tag content' do
       get :head
       response.should be_success
-      response.body.should == "<head><meta charset=\"UTF-8\" />" +
-                              "<title>1</title><style>a {}</style></head>"
+      response.body.should == '<head><meta charset="UTF-8" />' +
+                              '<title>1</title><style>a {}</style></head>'
     end
 
     it 'adds statistics in production' do
       Rails.env = ActiveSupport::StringInquirer.new('production')
       get :head
       response.should be_success
-      response.body.should == "<head><meta charset=\"UTF-8\" />" +
+      response.body.should == '<head><meta charset="UTF-8" />' +
                               "<title>1</title><style>a {}</style>stat\n</head>"
     end
 
@@ -31,8 +31,19 @@ describe HelpersController, type: :controller do
       Rails.env = ActiveSupport::StringInquirer.new('production')
       get :unstat
       response.should be_success
-      response.body.should == "<head><meta charset=\"UTF-8\" />" +
-                              "<title>2</title></head>"
+      response.body.should == '<head><meta charset="UTF-8" />' +
+                              '<title>2</title></head>'
+    end
+
+  end
+
+  describe 'tel' do
+
+    it 'renders telephone link' do
+      get :tel
+      response.should be_success
+      response.body.should == '<a class="tel phone" data-role="call" ' +
+                                 'href="tel:+555">+5 55</a>'
     end
 
   end
