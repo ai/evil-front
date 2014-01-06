@@ -10,7 +10,7 @@ module EvilFront::Helpers
   #       = course.name
   def flying_quotes(text = nil, options = { }, &block)
     text = capture(&block).strip if block_given?
-    text = raw(text) if respond_to? :raw
+    text = EvilFront.escape(text)
     text = EvilFront::Russian.flying_quotes(text, options)
     EvilFront.html_safe(text)
   end

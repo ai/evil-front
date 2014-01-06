@@ -29,6 +29,12 @@ describe EvilFront::Helpers do
                                    '<span class="quotes">«a»</span>'
     end
 
+    it 'escapes HTML' do
+      flying_quotes('<br>').should ==
+        '<span class="space-before-quote"> </span>' +
+        '<span class="quotes">«&lt;br&gt;»</span>'
+    end
+
   end
 
   describe 'ruble' do
@@ -42,8 +48,12 @@ describe EvilFront::Helpers do
   describe 'russian_typograph' do
 
     it 'typograps text inside tags' do
-      russian_typograph('<a title="а - б">а - б</a>').should ==
-        '<a title="а - б">а — б</a>'
+      tag = '<a title="а - б">а - б</a>'.html_safe
+      russian_typograph(tag).should == '<a title="а - б">а — б</a>'
+    end
+
+    it 'escapes HTML' do
+      russian_typograph('<a>').should == '&lt;a&gt;'
     end
 
   end
@@ -76,6 +86,11 @@ describe EvilFront::Helpers do
     it 'shows custom separator' do
       title 'One', 'Two'
       title_tag(separator: ' | ').should == '<title>One | Two</title>'
+    end
+
+    it 'escapes HTML' do
+      title '<B>'
+      title_tag.should == '<title>&lt;B&gt;</title>'
     end
 
   end

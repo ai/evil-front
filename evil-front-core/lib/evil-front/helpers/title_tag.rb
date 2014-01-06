@@ -22,7 +22,6 @@ module EvilFront::Helpers
     separator = options[:separator] || (I18n.locale == :ru ? ' — ' : ' - ')
     titles    = (@evil_front_titles + site).compact
     titles    = titles.join(separator)
-    titles    = raw(titles) if respond_to? :raw
-    EvilFront.html_safe("<title>#{ titles }</title>")
+    EvilFront.html_safe("<title>#{ EvilFront.escape(titles) }</title>")
   end
 end
