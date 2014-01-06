@@ -16,7 +16,7 @@ module EvilFront::Helpers
     head += capture(&block) if block_given?
     head += content_for(:evil_front_head)
 
-    options[:statistics] ||= true
+    options[:statistics] = true unless options.has_key? :statistics
     if options[:statistics] and Rails.env.production?
       head += render('layouts/statistics') rescue ''
     end
