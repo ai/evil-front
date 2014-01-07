@@ -73,7 +73,8 @@ module EvilFront
 
       node.children.each do |child|
         if child.is_a? Nokogiri::XML::Text
-          child.replace( auto_flying_quotes(typograph(child.content)) )
+          text = EvilFront.escape(child.content)
+          child.replace( auto_flying_quotes(typograph(text)) )
         else
           typograph_node! child
         end

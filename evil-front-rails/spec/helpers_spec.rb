@@ -1,7 +1,30 @@
+# encoding: utf-8
+
 require_relative 'spec_helper'
 
 describe HelpersController, type: :controller do
   render_views
+
+  describe 'flying_quotes' do
+
+    it 'accepts blocks' do
+      get :flying_quotes
+      response.should be_success
+      response.body.should == '<span class="space-before-quote"> </span>' +
+                              '<span class="quotes">«<b>text</b>»</span>'
+    end
+
+  end
+
+  describe 'russian_typograph' do
+
+    it 'accepts blocks' do
+      get :russian_typograph
+      response.should be_success
+      response.body.should == '<b><span class="quotes">«&lt;b&gt;ф»</span></b>'
+    end
+
+  end
 
   describe 'head_tag' do
     before do

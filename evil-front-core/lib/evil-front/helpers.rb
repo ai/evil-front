@@ -1,6 +1,5 @@
 module EvilFront
-  HTML_ESCAPE = { '&' => '&amp;',  '>' => '&gt;', '<' => '&lt;',
-                  '"' => '&quot;', "'" => '&#39;' }
+  HTML_ESCAPE = { '&' => '&amp;',  '>' => '&gt;', '<' => '&lt;' }
 
   # Call `html_safe` if String has this methods.
   def self.html_safe(string)
@@ -17,7 +16,7 @@ module EvilFront
     if not string.respond_to?(:html_safe?) or string.html_safe?
       string
     else
-      string.gsub(/[&"'><]/, HTML_ESCAPE).html_safe
+      string.gsub(/[&><]/, HTML_ESCAPE).html_safe
     end
   end
 end

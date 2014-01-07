@@ -9,8 +9,11 @@ module EvilFront::Helpers
   #     a href=course.url
   #       = course.name
   def flying_quotes(text = nil, options = { }, &block)
-    text = capture(&block).strip if block_given?
-    text = EvilFront.escape(text)
+    text = if block_given?
+      capture(&block).strip
+    else
+      EvilFront.escape(text)
+    end
     text = EvilFront::Russian.flying_quotes(text, options)
     EvilFront.html_safe(text)
   end

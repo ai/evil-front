@@ -85,6 +85,11 @@ describe EvilFront::Russian do
         '<code>а - б</code>'
     end
 
+    it 'keeps escaping' do
+      EvilFront::Russian.typograph_html('<b>&lt;a&gt;</b>').should ==
+        '<b>&lt;a&gt;</b>'
+    end
+
     it 'inserts flying quotes' do
       EvilFront::Russian.typograph_html('<a>"ссылка"</a>').should ==
         '<a><span class="quotes">«ссылка»</span></a>'
