@@ -11,7 +11,7 @@ module EvilFront::Helpers
   #     = user.profession
   def russian_typograph(text = nil, &block)
     text = if block_given?
-      capture(&block).force_encoding('UTF-8')
+      capture(&block)
     else
       EvilFront.escape(text)
     end

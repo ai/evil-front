@@ -91,8 +91,8 @@ describe EvilFront::Russian do
     end
 
     it 'inserts flying quotes' do
-      EvilFront::Russian.typograph_html('<a>"ссылка"</a>').should ==
-        '<a><span class="quotes">«ссылка»</span></a>'
+      EvilFront::Russian.typograph_html('<a>"link"</a>').should ==
+        '<a><span class="quotes">«link»</span></a>'
     end
 
   end
