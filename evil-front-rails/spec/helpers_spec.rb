@@ -21,7 +21,7 @@ describe HelpersController, type: :controller do
     it 'accepts blocks' do
       get :russian_typograph
       response.should be_success
-      response.body.should == '<b><span class="quotes">«&lt;b&gt;ф»</span></b>'
+      response.body.should == '<b><span class="quotes">«&lt;b&gt;»</span></b>'
     end
 
   end

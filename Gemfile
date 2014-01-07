@@ -12,3 +12,7 @@ gem 'evil-front-rails', path: 'evil-front-rails/', require: false
 gemspec path: 'evil-front-core'
 gemspec path: 'evil-front-all'
 gemspec path: 'evil-front-rails'
+
+gem 'racc',             platforms: 'rbx'
+gem 'rubysl',           platforms: 'rbx'
+gem 'rubysl-test-unit', platforms: 'rbx'
