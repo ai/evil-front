@@ -1,4 +1,4 @@
-require File.expand_path('../../evil-front-core/lib/evil-front/version', __FILE__)
+require File.expand_path('../../evil-front/lib/evil-front/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY

@@ -1,4 +1,4 @@
-require File.expand_path('../../evil-front-core/lib/evil-front/version', __FILE__)
+require File.expand_path('../../evil-front/lib/evil-front/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['LICENSE']
   s.require_path     = 'lib'
 
-  s.add_dependency 'evil-front-core', EvilFront::VERSION.dup
+  s.add_dependency 'evil-front', EvilFront::VERSION.dup
 
   s.add_dependency 'uglifier',            '>= 2.1.1'
   s.add_dependency 'sprockets',           '>= 1'

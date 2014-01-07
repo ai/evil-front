@@ -2,7 +2,7 @@ require File.expand_path('../lib/evil-front/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'evil-front-core'
+  s.name        = 'evil-front'
   s.version     = EvilFront::VERSION.dup
   s.date        = Time.now.strftime('%Y-%m-%d')
   s.summary     = ''

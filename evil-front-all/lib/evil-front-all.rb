@@ -1,6 +1,6 @@
 # Load all neccessary libraries and files.
 
-require 'evil-front-core'
+require 'evil-front'
 
 require 'uglifier'
 require 'csso-rails'

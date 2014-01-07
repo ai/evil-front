@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
-GEMS = %w(evil-front-core evil-front-rails)
+GEMS = %w(evil-front evil-front-rails)
 
 require 'rspec/core/rake_task'
 
