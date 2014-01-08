@@ -1,0 +1,9 @@
+require 'rubygems'
+
+require 'bundler/setup'
+Bundler::GemHelper.install_tasks
+
+task :clobber_package do
+  rm_r 'pkg' rescue nil
+end
+task clobber: [:clobber_package]

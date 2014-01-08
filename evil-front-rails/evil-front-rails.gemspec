@@ -1,13 +1,12 @@
-require File.expand_path('../../evil-front/lib/evil-front/version', __FILE__)
+require File.expand_path('../lib/evil-front/rails/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'evil-front-rails'
-  s.version     = EvilFront::VERSION.dup
+  s.version     = EvilFront::Rails::VERSION
   s.date        = Time.now.strftime('%Y-%m-%d')
-  s.summary     = ''
-  s.description = <<-EOF
-  EOF
+  s.summary     = 'Helpers, Sass mixins, JS shortcuts, workflow and ' +
+                  'Rails settings from Evil Martians'
 
   s.author   = 'Andrey Sitnik'
   s.email    = 'andrey@sitnik.ru'

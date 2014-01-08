@@ -3,11 +3,9 @@ require File.expand_path('../lib/evil-front/version', __FILE__)
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'evil-front'
-  s.version     = EvilFront::VERSION.dup
+  s.version     = EvilFront::VERSION
   s.date        = Time.now.strftime('%Y-%m-%d')
-  s.summary     = ''
-  s.description = <<-EOF
-  EOF
+  s.summary     = 'Helpers, Sass mixins and JS shortcuts from Evil Martians'
 
   s.author   = 'Andrey Sitnik'
   s.email    = 'andrey@sitnik.ru'

@@ -1,5 +1,3 @@
-# Load all neccessary libraries and files.
-
 require 'evil-front'
 
 require 'uglifier'
@@ -28,3 +26,5 @@ module EvilFront
     end
   end
 end
+
+require_relative 'evil-front/all/version'

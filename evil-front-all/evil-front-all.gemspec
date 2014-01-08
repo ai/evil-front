@@ -1,13 +1,12 @@
-require File.expand_path('../../evil-front/lib/evil-front/version', __FILE__)
+require File.expand_path('../lib/evil-front/all/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'evil-front-all'
-  s.version     = EvilFront::VERSION.dup
+  s.version     = EvilFront::All::VERSION
   s.date        = Time.now.strftime('%Y-%m-%d')
-  s.summary     = ''
-  s.description = <<-EOF
-  EOF
+  s.summary     = 'Helpers, Sass mixins, JS shortcuts and workflow ' +
+                  'from Evil Martians'
 
   s.author   = 'Andrey Sitnik'
   s.email    = 'andrey@sitnik.ru'
@@ -18,7 +17,8 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['LICENSE']
   s.require_path     = 'lib'
 
-  s.add_dependency 'evil-front', EvilFront::VERSION.dup
+  min = EvilFront::All::VERSION.split('.')[0..1].concat(['0']).join('.')
+  s.add_runtime_dependency 'evil-front', "~> #{min}"
 
   s.add_dependency 'uglifier',            '>= 2.1.1'
   s.add_dependency 'sprockets',           '>= 1'
