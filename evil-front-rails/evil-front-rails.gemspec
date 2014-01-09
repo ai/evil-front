@@ -17,7 +17,8 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['LICENSE']
   s.require_path     = 'lib'
 
-  s.add_dependency 'evil-front-all', EvilFront::VERSION.dup
+  min = EvilFront::Rails::VERSION.split('.')[0..1].concat(['0']).join('.')
+  s.add_runtime_dependency 'evil-front', "~> #{min}"
 
   s.add_dependency 'rails',        '>= 3'
   s.add_dependency 'sass-rails',   '>= 3.2.6'
