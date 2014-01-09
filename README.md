@@ -8,8 +8,9 @@ The project is separated into 3 gems:
   the application environment.
 * [Evil Front All](evil-front-all/) loads the workflow gems: Autoprefixer, Csso,
   Slim, JqueryCdn, Evil Blocks, Uglifier.
-* [Evil Front Rails](evil-front-rails/) loads the workflow gems and changes Rails
-  settings to create my common frontend workflow with a single line of code.
+* [Evil Front Rails](evil-front-rails/) loads the workflow gems and changes\
+  Rails settings to create my common frontend workflow
+  with a single line of code.
 
 You can safely use Evil Front Core, but the other two gems have side effects,
 so I recommend to only use them for new projects.
@@ -84,7 +85,7 @@ The Evil Front Core gem contains assets and view helpers:
 * [after(ms, callback)](evil-front/lib/assets/javascripts/evil-front/after.js)
   and
   [every(ms, callback)](evil-front/lib/assets/javascripts/evil-front/every.js)
-  syntactic sugar to clean up `setTimeout` in CoffeeScript.
+  syntax sugar to clean up `setTimeout` and `setInterval` in CoffeeScript.
 * [Script](evil-front/lib/assets/javascripts/evil-front/links.js) to prevent
   default behavior for AJAX links with `href="#"` to clean event listeners from
   noisy `return false`.
@@ -123,9 +124,9 @@ The Evil Front All gem loads my must-have tools:
 
 ## Rails Settings
 
-The Evil Front Rails gem alters default Rails settings:
+The Evil Front Rails gem changes default Rails settings:
 
-* **Autoprecompile** is added to precompile all files in root of
-  `app/assets/stylesheets` and `app/assets/javascripts`.
-  You should only store loadable files in subdirs.
+* **Autoprecompile** adds all files in root of `app/assets/stylesheets`
+  and `app/assets/javascripts` to precompile You should only store loadable
+  files in subdirs.
 * **Disable assets generation** on controller and action generation.
