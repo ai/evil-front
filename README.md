@@ -3,33 +3,33 @@
 Helpers, shortcuts and my common frontend workflows
 from [Evil Martians](http://evilmartians.com/).
 
-Project is separated to 2 gems:
-* [Evil Front](evil-front/) contains only helper and doesn’t change
-  application environment.
-* [Evil Front All](evil-front-all/) load workflows gems: Autoprefixer, Csso,
+The project is separated into 3 gems:
+* [Evil Front](evil-front/) only contains helpers and doesn’t change
+  the application environment.
+* [Evil Front All](evil-front-all/) loads the workflow gems: Autoprefixer, Csso,
   Slim, JqueryCdn, Evil Blocks, Uglifier.
-* [Evil Front Rails](evil-front-rails/) load workflow gems and changes Rails
-  settings to create my common frontend workflow by single code line.
+* [Evil Front Rails](evil-front-rails/) loads the workflow gems and changes Rails
+  settings to create my common frontend workflow with a single line of code.
 
-You can safely use Evil Front Core, but 2 other gems has side effects,
-so I recommend to use them only on new projects.
+You can safely use Evil Front Core, but the other two gems have side effects,
+so I recommend to only use them for new projects.
 
-Some of view helpers from Evil Front Core may require Rails, but most of them
-works in any Ruby application.
+Some of the view helpers from Evil Front Core may require Rails, but most of them
+work with any Ruby application.
 
 ## Helpers
 
-Evil Front Core gem contain assets and view helpers:
+The Evil Front Core gem contains assets and view helpers:
 
 ### View Helpers
 
 #### Russian Typography
 
 * [russian_typograph](evil-front/lib/evil-front/helpers/russian_typograph.rb)
-  to add real symbols (like Russian quotes, em-dash), flying quotes,
-  non-break spaces.
-* [ruble](evil-front/lib/evil-front/helpers/ruble.rb) to insert symbol
-  for Russian currency.
+  to add typographical symbols (like Russian quotes, em-dash), flying quotes,
+  non-breaking spaces.
+* [ruble](evil-front/lib/evil-front/helpers/ruble.rb) to insert the Russian
+  currency character.
 * [capitalize_first](evil-front/lib/evil-front/helpers/capitalize_first.rb)
   to capitalize only first letter.
 
@@ -49,8 +49,8 @@ Evil Front Core gem contain assets and view helpers:
 
 ####  Other
 
-* [tel](evil-front/lib/evil-front/helpers/tel.rb) to insert telephone as link
-  with `tel:` protocol.
+* [tel](evil-front/lib/evil-front/helpers/tel.rb) to insert phone numbers as
+  links with the `tel:` protocol.
 
 ### Sass Helpers
 
@@ -62,7 +62,7 @@ Evil Front Core gem contain assets and view helpers:
   mixin to enable flying quotes helper.
 * [+no-hover](evil-front/lib/assets/stylesheets/evil-front/no-hover.sass) and
   [+styled-taps](evil-front/lib/assets/stylesheets/evil-front/styled-taps.sass)
-  mixin to works with hover/tap styles on touch devices.
+  mixin to work with hover/tap styles on touch devices.
 * [Variables](evil-front/lib/assets/stylesheets/evil-front/easings.sass)
   with [easings](http://easings.net/).
 * CSS Media Queries
@@ -84,7 +84,7 @@ Evil Front Core gem contain assets and view helpers:
 * [after(ms, callback)](evil-front/lib/assets/javascripts/evil-front/after.js)
   and
   [every(ms, callback)](evil-front/lib/assets/javascripts/evil-front/every.js)
-  syntax sugars to clean up `setTimeout` in CoffeeScript.
+  syntactic sugar to clean up `setTimeout` in CoffeeScript.
 * [Script](evil-front/lib/assets/javascripts/evil-front/links.js) to prevent
   default behavior for AJAX links with `href="#"` to clean event listeners from
   noisy `return false`.
@@ -105,7 +105,8 @@ Evil Front Core gem contain assets and view helpers:
 
 ## Workflow
 
-Evil Front All gem loads my must-have tools:
+The Evil Front All gem loads my must-have tools:
+
 * [Sass](http://sass-lang.com/) to write pretty styles.
 * [Slim](http://slim-lang.com/) to write pretty views.
 * [CoffeeScript](http://coffeescript.org/) to write pretty scripts.
@@ -122,9 +123,9 @@ Evil Front All gem loads my must-have tools:
 
 ## Rails Settings
 
-Evil Front Rails gem changes default Rails settings:
+The Evil Front Rails gem alters default Rails settings:
 
-* **Autoprecompile** adds to precompile all files in root of
+* **Autoprecompile** is added to precompile all files in root of
   `app/assets/stylesheets` and `app/assets/javascripts`.
-  You should store loadable files only in subdirs.
+  You should only store loadable files in subdirs.
 * **Disable assets generation** on controller and action generation.
