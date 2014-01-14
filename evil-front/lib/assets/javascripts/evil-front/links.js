@@ -3,7 +3,7 @@
 
 evil.doc.ready(function() {
     evil.body.on('click', 'a', function (e) {
-        if ( $(this).attr('href') == '#' ) {
+        if ( this.getAttribute('href') == '#' ) {
             e.preventDefault();
         }
     });
