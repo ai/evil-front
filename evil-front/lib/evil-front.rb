@@ -6,7 +6,9 @@ require 'sprockets'
 require 'rails-sass-images'
 
 module EvilFront
-  autoload :Russian, 'evil-front/russian'
+  autoload :Typograph, 'evil-front/typograph'
+  autoload :Russian,   'evil-front/russian'
+  autoload :English,   'evil-front/english'
 
   if defined?(::Rails)
     # Enable `lib/assets/` and `vendor/assets/` in Rails app.

@@ -1,12 +1,13 @@
 # encoding: utf-8
 
 require 'unicode_utils'
-require 'nokogiri'
 require 'standalone_typograf'
 
 module EvilFront
   # Helpers to work with Russian text.
   module Russian
+    extend Typograph
+
     # Capitalize only first letter (like titles in Russian).
     #
     #   = EvilFront::Russian.capitalize_first(title)
@@ -14,8 +15,8 @@ module EvilFront
       UnicodeUtils.upcase(text[0]) + text[1..-1]
     end
 
-    # Insert non-break spaces and mark quotes to have nice text. Work only with
-    # Russian language.
+    # Insert non-break spaces and mark quotes to have nice text.
+    # Work only with Russian language.
     #
     #   EvilFront::Russian.typograph(article)
     def self.typograph(text)
@@ -28,28 +29,13 @@ module EvilFront
                 безо к ко об обо под подо над перед передо)
       tiny += tiny.map { |i| capitalize_first(i) }
       tiny.each do |word|
-        regexp = Regexp.new(" #{Regexp.quote word} ") # fix JRuby issue
-        text.gsub! regexp, " #{word} " # non-break space
+        regexp = Regexp.new("( | )#{Regexp.quote word} ") # fix JRuby issue
+        text.gsub! regexp, "\\1#{word} " # non-break space
       end
 
       text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
 
       text
-    end
-
-    # Like `typograph`, but process only text nodes in HTML.
-    #
-    #   EvilFront::Russian.typograph_html(article.html)
-    def self.typograph_html(html)
-      return html if html.nil? or html.empty?
-
-      if html.include? '<'
-        nodes = Nokogiri::HTML::DocumentFragment.parse(html)
-        typograph_node! nodes
-        nodes.to_html
-      else
-        auto_flying_quotes(typograph(html))
-      end
     end
 
     # Find quotes in text and make them flying
@@ -67,18 +53,9 @@ module EvilFront
 
     private
 
-    # Recursively apply typography to Nokogiri nodes
-    def self.typograph_node!(node)
-      return if node.name == 'code'
-
-      node.children.each do |child|
-        if child.is_a? Nokogiri::XML::Text
-          text = EvilFront.escape(child.content)
-          child.replace( auto_flying_quotes(typograph(text)) )
-        else
-          typograph_node! child
-        end
-      end
+    # Apply all typograph methods to text
+    def self.typograph_all(text)
+      auto_flying_quotes(typograph(text))
     end
   end
 end

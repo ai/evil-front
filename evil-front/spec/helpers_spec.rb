@@ -58,6 +58,19 @@ describe EvilFront::Helpers do
 
   end
 
+  describe 'english_typograph' do
+
+    it 'typograps text inside tags' do
+      tag = '<a title="a...">a...</a>'.html_safe
+      english_typograph(tag).should == '<a title="a...">a…</a>'
+    end
+
+    it 'escapes HTML' do
+      english_typograph('<a>').should == '&lt;a&gt;'
+    end
+
+  end
+
   describe 'title' do
     after do
       I18n.locale = :en
