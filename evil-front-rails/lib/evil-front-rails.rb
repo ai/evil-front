@@ -23,10 +23,6 @@ module EvilFront
         app.config.sass.debug_info = true
       end
     end
-
-    initializer 'evil_front.action_view' do
-      ActiveSupport.on_load(:action_view) { include Helpers }
-    end
   end
 end
 
