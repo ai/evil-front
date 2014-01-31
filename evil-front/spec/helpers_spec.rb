@@ -47,7 +47,7 @@ describe EvilFront::Helpers do
 
   describe 'russian_typograph' do
 
-    it 'typograps text inside tags' do
+    it 'typographs text inside tags' do
       tag = '<a title="а - б">а - б</a>'.html_safe
       russian_typograph(tag).should == '<a title="а - б">а — б</a>'
     end
@@ -60,13 +60,33 @@ describe EvilFront::Helpers do
 
   describe 'english_typograph' do
 
-    it 'typograps text inside tags' do
+    it 'typographs text inside tags' do
       tag = '<a title="a...">a...</a>'.html_safe
       english_typograph(tag).should == '<a title="a...">a…</a>'
     end
 
     it 'escapes HTML' do
       english_typograph('<a>').should == '&lt;a&gt;'
+    end
+
+  end
+
+  describe 'typograph_by_locale' do
+    after do
+      I18n.locale = :en
+    end
+
+    it 'typographs by current locale' do
+      I18n.locale = :en
+      typograph_by_locale('"a"').should == '“a”'
+
+      I18n.locale = :ru
+      typograph_by_locale('"a"').should == '<span class="quotes">«a»</span>'
+    end
+
+    it 'returns origin text on unknown locale' do
+      I18n.locale = :fr
+      typograph_by_locale('"a"').should == '"a"'
     end
 
   end

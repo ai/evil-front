@@ -26,6 +26,26 @@ describe HelpersController, type: :controller do
 
   end
 
+  describe 'typograph_by_locale' do
+    after do
+      I18n.locale = :en
+    end
+
+    it 'accepts blocks' do
+      get :typograph_by_locale
+      response.should be_success
+      response.body.should == '“a”'
+    end
+
+    it 'returns origin blocks on unknown locale' do
+      I18n.locale = :fr
+      get :typograph_by_locale
+      response.should be_success
+      response.body.should == '&quot;a&quot;'
+    end
+
+  end
+
   describe 'head_tag' do
     before do
       @env = Rails.env

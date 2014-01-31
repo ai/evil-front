@@ -26,6 +26,7 @@ module EvilFront
     def typograph(text)
       return text if text.nil? or text.empty?
 
+      text.gsub! '&quot;', '"'
       text = use_right_symbols(text)
       text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
       tiny_words.each { |regexp| text.gsub! regexp, "\\1\\2 " }
