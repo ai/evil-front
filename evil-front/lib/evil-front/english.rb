@@ -7,28 +7,21 @@ module EvilFront
   module English
     extend Typograph
 
-    # Insert non-break spaces and mark quotes to have nice text.
-    # Work only with English language.
-    #
-    #   EvilFront::English.typograph(article)
-    def self.typograph(text)
-      return text if text.nil? or text.empty?
+    private
 
-      text = RubyPants.new(text).to_html
-
-      tiny = %w(to is be the a an no if at on of in or and)
-      tiny += tiny.map { |i| i.capitalize }
-      tiny.each do |word|
-        regexp = Regexp.new("( | )#{Regexp.quote word} ") # fix JRuby issue
-        text.gsub! regexp, "\\1#{word} " # non-break space
-      end
-
-      text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
-
-      text
+    # Replace symbols to right ones, like m-dash, quotes, etc.
+    def self.use_right_symbols(text)
+      RubyPants.new(text).to_html
     end
 
-    private
+    # Small words to insert non-break space before them
+    def self.tiny_words
+      @tiny_words ||= begin
+        tiny  = %w(to is be the a an no if at on of in or and)
+        tiny += tiny.map(&:capitalize)
+        tiny.map { |i| Regexp.new("( | )(#{Regexp.quote i}) ") }
+      end
+    end
 
     # Apply all typograph methods to text
     def self.typograph_all(text)

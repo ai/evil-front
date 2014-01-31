@@ -20,6 +20,19 @@ module EvilFront
       end
     end
 
+    # Insert non-break spaces and mark quotes to have nice text.
+    #
+    #   EvilFront::Russian.typograph(article)
+    def typograph(text)
+      return text if text.nil? or text.empty?
+
+      text = use_right_symbols(text)
+      text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
+      tiny_words.each { |regexp| text.gsub! regexp, "\\1\\2 " }
+
+      text
+    end
+
     private
 
     # Recursively apply typography to Nokogiri nodes

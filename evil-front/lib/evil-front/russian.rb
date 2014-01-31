@@ -15,29 +15,6 @@ module EvilFront
       UnicodeUtils.upcase(text[0]) + text[1..-1]
     end
 
-    # Insert non-break spaces and mark quotes to have nice text.
-    # Work only with Russian language.
-    #
-    #   EvilFront::Russian.typograph(article)
-    def self.typograph(text)
-      return text if text.nil? or text.empty?
-
-      text = StandaloneTypograf::Typograf.new(text).prepare
-
-      tiny = %w(ни не и но а или да как из-за про по за для
-                на до при меж о у в во с со от ото из без
-                безо к ко об обо под подо над перед передо)
-      tiny += tiny.map { |i| capitalize_first(i) }
-      tiny.each do |word|
-        regexp = Regexp.new("( | )#{Regexp.quote word} ") # fix JRuby issue
-        text.gsub! regexp, "\\1#{word} " # non-break space
-      end
-
-      text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
-
-      text
-    end
-
     # Find quotes in text and make them flying
     def self.auto_flying_quotes(text)
       text.gsub(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }.
@@ -52,6 +29,22 @@ module EvilFront
     end
 
     private
+
+    # Small words to insert non-break space before them
+    def self.tiny_words
+      @tiny_words ||= begin
+        tiny  = %w(ни не и но а или да как из-за про по за для
+                   на до при меж о у в во с со от ото из без
+                   безо к ко об обо под подо над перед передо)
+        tiny += tiny.map { |i| capitalize_first(i) }
+        tiny.map { |i| Regexp.new("( | )(#{Regexp.quote i}) ") }
+      end
+    end
+
+    # Replace symbols to right ones, like m-dash, quotes, etc.
+    def self.use_right_symbols(text)
+      StandaloneTypograf::Typograf.new(text).prepare
+    end
 
     # Apply all typograph methods to text
     def self.typograph_all(text)
