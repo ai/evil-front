@@ -24,7 +24,7 @@ module EvilFront
 
     # Recursively apply typography to Nokogiri nodes
     def typograph_node!(node)
-      return if node.name == 'code'
+      return if %w(pre code kbd script style math).include? node.name
 
       node.children.each do |child|
         if child.is_a? Nokogiri::XML::Text
