@@ -12,7 +12,7 @@ module EvilFront
       return html if html.nil? or html.empty?
 
       if html.include? '<'
-        nodes = Nokogiri::HTML::DocumentFragment.parse(html)
+        nodes = Nokogiri::HTML::DocumentFragment.parse(html, 'utf-8')
         typograph_node! nodes
         nodes.to_html
       else
