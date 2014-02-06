@@ -1,3 +1,7 @@
+## 0.2.1
+
+* Fix encoding issue with Nokogiri in `english_typograph`.
+
 ## 0.2 “Ptolemaeus Crater”
 
 * Add `english_typograph` helper.
