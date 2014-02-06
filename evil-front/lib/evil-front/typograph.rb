@@ -36,6 +36,11 @@ module EvilFront
 
     private
 
+    # Apply all typograph methods to text
+    def typograph_all(text)
+      typograph(text)
+    end
+
     # Recursively apply typography to Nokogiri nodes
     def typograph_node!(node)
       return if %w(pre code kbd script style math).include? node.name

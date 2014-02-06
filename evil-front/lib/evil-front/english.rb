@@ -22,10 +22,5 @@ module EvilFront
         tiny.map { |i| Regexp.new("( | )(#{Regexp.quote i}) ") }
       end
     end
-
-    # Apply all typograph methods to text
-    def self.typograph_all(text)
-      typograph(text)
-    end
   end
 end
