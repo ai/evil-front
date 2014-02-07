@@ -2,6 +2,8 @@ module EvilFront::Helpers
   # Find quotes and add tags to flying quotes
   #
   #   = auto_flying_quotes post.body
+  #
+  # Don’t forget to install styles by `quotes` Sass mixin.
   def auto_flying_quotes(text = nil, &block)
     text = if block_given?
       capture(&block).strip

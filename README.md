@@ -24,11 +24,17 @@ The Evil Front Core gem contains assets and view helpers:
 
 ### View Helpers
 
-#### Russian Typography
+#### Typography
 
 * [russian_typograph](evil-front/lib/evil-front/helpers/russian_typograph.rb)
-  to add typographical symbols (like Russian quotes, em-dash), flying quotes,
+  to add typographical symbols (like Russian quotes, em-dash),
   non-breaking spaces.
+* [english_typograph](evil-front/lib/evil-front/helpers/english_typograph.rb)
+  to add typographical symbols (like quotes, ellipsis), non-breaking spaces.
+* [typograph_by_locale](evil-front/lib/evil-front/helpers/typograph_by_locale.rb)
+  uses `russian_typograph` or `english_typograph` depend on current locale.
+* [auto_flying_quotes](evil-front/lib/evil-front/helpers/auto_flying_quotes.rb)
+  add tags to quotes to move it from text left horizontal line.
 * [ruble](evil-front/lib/evil-front/helpers/ruble.rb) to insert the Russian
   currency character.
 * [capitalize_first](evil-front/lib/evil-front/helpers/capitalize_first.rb)
@@ -60,7 +66,7 @@ The Evil Front Core gem contains assets and view helpers:
 * [+import-ruble](evil-front/lib/assets/stylesheets/evil-front/import-ruble.sass)
   mixin to enable `ruble` helper.
 * [+flying-quotes](evil-front/lib/assets/stylesheets/evil-front/flying-quotes.sass)
-  mixin to enable flying quotes helper.
+  mixin to enable `auto_flying_quotes` helper.
 * [+no-hover](evil-front/lib/assets/stylesheets/evil-front/no-hover.sass) and
   [+styled-taps](evil-front/lib/assets/stylesheets/evil-front/styled-taps.sass)
   mixin to work with hover/tap styles on touch devices.
