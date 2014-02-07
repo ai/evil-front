@@ -16,9 +16,11 @@ module EvilFront
     end
 
     # Find quotes in text and make them flying
-    def self.auto_flying_quotes(text)
-      text.gsub(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }.
-           gsub(/^«[^»]+»/)  { |i| flying_quotes i[1..-2], space: '' }
+    def self.auto_flying_quotes(html)
+      process_html(html) do |text|
+        text.gsub(/\s«[^»]+»/) { |i| flying_quotes i[2..-2], space: i[0] }.
+             gsub(/^«[^»]+»/)  { |i| flying_quotes i[1..-2], space: '' }
+      end
     end
 
     # Mark quotes to move first quote before the text line.
@@ -44,11 +46,6 @@ module EvilFront
     # Replace symbols to right ones, like m-dash, quotes, etc.
     def self.use_right_symbols(text)
       StandaloneTypograf::Typograf.new(text).prepare
-    end
-
-    # Apply all typograph methods to text
-    def self.typograph_all(text)
-      auto_flying_quotes(typograph(text))
     end
   end
 end

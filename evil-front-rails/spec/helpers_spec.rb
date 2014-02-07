@@ -16,12 +16,22 @@ describe HelpersController, type: :controller do
 
   end
 
+  describe 'auto_flying_quotes' do
+
+    it 'accepts blocks' do
+      get :auto_flying_quotes
+      response.should be_success
+      response.body.should == '<b><span class="quotes">«a»</span></b>'
+    end
+
+  end
+
   describe 'russian_typograph' do
 
     it 'accepts blocks' do
       get :russian_typograph
       response.should be_success
-      response.body.should == '<b><span class="quotes">«&lt;ф&gt;»</span></b>'
+      response.body.should == '<b>«&lt;ф&gt;»</b>'
     end
 
   end

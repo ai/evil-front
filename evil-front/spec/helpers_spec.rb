@@ -37,6 +37,22 @@ describe EvilFront::Helpers do
 
   end
 
+  describe 'auto_flying_quotes' do
+
+    it 'set quotes to text' do
+      auto_flying_quotes('от «a»').should ==
+        'от<span class="space-before-quote"> </span>' +
+        '<span class="quotes">«a»</span>'
+    end
+
+    it 'escapes HTML' do
+      auto_flying_quotes('от «<br>»').should ==
+        'от<span class="space-before-quote"> </span>' +
+        '<span class="quotes">«&lt;br&gt;»</span>'
+    end
+
+  end
+
   describe 'ruble' do
 
     it 'returns span' do
@@ -81,7 +97,7 @@ describe EvilFront::Helpers do
       typograph_by_locale('"a"').should == '“a”'
 
       I18n.locale = :ru
-      typograph_by_locale('"a"').should == '<span class="quotes">«a»</span>'
+      typograph_by_locale('"a"').should == '«a»'
     end
 
     it 'returns origin text on unknown locale' do
