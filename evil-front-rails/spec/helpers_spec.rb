@@ -110,8 +110,8 @@ describe HelpersController, type: :controller do
       response.body.should ==
         '<link href="/stylesheets/application.css" ' +
               'media="all" rel="stylesheet" />' +
-        '<script src="//ajax.googleapis.com/ajax/libs/' +
-                     'jquery/2.0.3/jquery.min.js"></script>' +
+        '<script src="//ajax.googleapis.com/ajax/libs/jquery/' +
+                     "#{ JqueryCdn::VERSION }/jquery.min.js\"></script>" +
         "<script>window.jQuery || " +
                 "document.write(unescape('%3Cscript " +
                 "src=\"/assets/jquery.js\">%3C/script>'))</script>" +
