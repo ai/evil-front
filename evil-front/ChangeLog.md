@@ -1,3 +1,8 @@
+## 0.3 “Samara Vallis”
+
+* Russian typograph doesn’t insert flying quotes tag anymore.
+* Add separated `auto_flying_quotes` helper.
+
 ## 0.2.1
 
 * Fix encoding issue with Nokogiri in `english_typograph`.
