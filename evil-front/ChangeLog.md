@@ -1,3 +1,7 @@
+## 0.3.1
+
+* Add labels to tappable by default.
+
 ## 0.3 “Samara Vallis”
 
 * Russian typograph doesn’t insert flying quotes tag anymore.
