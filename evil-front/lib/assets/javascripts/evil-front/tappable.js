@@ -41,6 +41,6 @@
     });
 
     evil.doc.ready(function ($) {
-        evil.body.evil.tappable('a, input');
+        evil.body.evil.tappable('a, input, label');
     });
 })();
