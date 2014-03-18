@@ -1,0 +1,10 @@
+// Alias for focus and hover states
+//
+//   a
+//     +no-hover
+//       color: blue
+//     +hover
+//       color: red
+@mixin hover
+  &:hover, &:focus
+    @content

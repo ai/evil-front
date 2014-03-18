@@ -67,7 +67,8 @@ The Evil Front Core gem contains assets and view helpers:
   mixin to enable `ruble` helper.
 * [+flying-quotes](evil-front/lib/assets/stylesheets/evil-front/flying-quotes.sass)
   mixin to enable `auto_flying_quotes` helper.
-* [+no-hover](evil-front/lib/assets/stylesheets/evil-front/no-hover.sass) and
+* [+no-hover](evil-front/lib/assets/stylesheets/evil-front/no-hover.sass),
+  [+hover](evil-front/lib/assets/stylesheets/evil-front/hover.sass) and
   [+styled-taps](evil-front/lib/assets/stylesheets/evil-front/styled-taps.sass)
   mixin to work with hover/tap styles on touch devices.
 * [Variables](evil-front/lib/assets/stylesheets/evil-front/easings.sass)
