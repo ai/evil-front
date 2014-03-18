@@ -1,3 +1,7 @@
+## 0.3.3
+
+* Fix `+hover` mixin loading.
+
 ## 0.3.2
 
 * Add `+hover` Sass mixin.
