@@ -1,3 +1,7 @@
+## 0.3.2
+
+* Add `+hover` Sass mixin.
+
 ## 0.3.1
 
 * Add labels to tappable by default.
