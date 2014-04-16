@@ -142,6 +142,11 @@ describe EvilFront::Helpers do
       title_tag.should == '<title>&lt;B&gt;</title>'
     end
 
+    it 'hides site name on request' do
+      title 'Page', no_site: true
+      title_tag('Site').should == '<title>Page</title>'
+    end
+
   end
 
 end

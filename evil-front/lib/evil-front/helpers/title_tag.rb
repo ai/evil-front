@@ -17,11 +17,14 @@ module EvilFront::Helpers
   #
   #   = title_tag('Foo Company', separator: ' * ')
   def title_tag(*site)
-    @evil_front_titles ||= []
     options   = site.extract_options!
     separator = options[:separator] || (I18n.locale == :ru ? ' — ' : ' - ')
-    titles    = (@evil_front_titles + site).compact
-    titles    = titles.join(separator)
+
+    site = [] if @evil_front_no_site_in_title
+
+    @evil_front_titles ||= []
+    titles = (@evil_front_titles + site).compact
+    titles = titles.join(separator)
     EvilFront.html_safe("<title>#{ EvilFront.escape(titles) }</title>")
   end
 end
