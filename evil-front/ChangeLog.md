@@ -1,3 +1,8 @@
+## 0.3.4
+
+* Add `no_site` option to `title` helper.
+* Better `+stroke-text` by Vadim Sikora.
+
 ## 0.3.3
 
 * Fix `+hover` mixin loading.
