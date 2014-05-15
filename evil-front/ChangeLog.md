@@ -1,3 +1,8 @@
+## 0.3.5
+
+* `$.fn.evil.ajax` and `$.fn.evil.tappable` return element’s jQuery node
+  to be used in chains.
+
 ## 0.3.4
 
 * Add `no_site` option to `title` helper.
