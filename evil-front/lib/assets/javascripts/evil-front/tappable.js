@@ -1,7 +1,7 @@
 //= require evil-front/jquery
 
 // Add events to add special class on touch events. It will much faster, than
-// `:hover` selector.
+// `:hover` selector. It returns jQuery node of element for chains.
 //
 // By default it add listener to all links and inputs on body.
 // But you can add it to any elements:
@@ -37,6 +37,7 @@
                 this.on('touchstart', start);
                 this.on('touchend touchmove', end);
             }
+            return this;
         }
     });
 

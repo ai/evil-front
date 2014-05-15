@@ -1,6 +1,7 @@
 //= evil-front/jquery
 
 // Change selected form to be sent by AJAX.
+// It returns jQuery node of form for chains.
 //
 //   $('form').evil.ajax
 //     success:      -> message('success')
@@ -13,7 +14,7 @@ evil.$.extend('ajax', function (opts) {
         opts = { };
     }
 
-    this.submit(function (event) {
+    return this.submit(function (event) {
         if ( event.isPropagationStopped() ) {
             return false;
         }
