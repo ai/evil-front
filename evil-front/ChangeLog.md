@@ -1,3 +1,7 @@
+## 0.3.6
+
+* Russian typograph inserts non-break space before m-dash.
+
 ## 0.3.5
 
 * `$.fn.evil.ajax` and `$.fn.evil.tappable` return element’s jQuery node
