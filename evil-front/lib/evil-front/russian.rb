@@ -37,7 +37,7 @@ module EvilFront
       @tiny_words ||= begin
         tiny  = %w(ни не и но а или да как из-за про по за для
                    на до при меж о у в во с со от ото из без
-                   безо к ко об обо под подо над перед передо)
+                   безо к ко об обо под подо над перед передо это)
         tiny += tiny.map { |i| capitalize_first(i) }
         tiny.map { |i| Regexp.new("( | )(#{Regexp.quote i}) ") }
       end
@@ -46,6 +46,7 @@ module EvilFront
     # Replace symbols to right ones, like m-dash, quotes, etc.
     def self.use_right_symbols(text)
       StandaloneTypograf::Typograf.new(text).prepare
+        .gsub(' —', ' —') # nbsp before m-dash
     end
   end
 end

@@ -54,22 +54,25 @@ describe EvilFront::Russian do
   end
 
   describe 'typograph' do
+    def nbsp_mark_typograph(str)
+      EvilFront::Russian.typograph(str).gsub(' ', '_')
+    end
 
     it 'changes quotes' do
-      EvilFront::Russian.typograph('сказал "смотри "зорко"".').should ==
+      nbsp_mark_typograph('сказал "смотри "зорко"".').should ==
         'сказал «смотри „зорко“».'
     end
 
     it 'changes dashes' do
-      EvilFront::Russian.typograph('а - это б').should == 'а — это б'
+      nbsp_mark_typograph('а - это б').should == 'а_— это_б'
     end
 
     it 'changes ellipsis' do
-      EvilFront::Russian.typograph('а...').should == 'а…'
+      nbsp_mark_typograph('а...').should == 'а…'
     end
 
     it 'inserts non-break spaces' do
-      EvilFront::Russian.typograph('оно не надо').should == 'оно не надо'
+      nbsp_mark_typograph('оно не надо').should == 'оно не_надо'
     end
 
   end
@@ -77,17 +80,17 @@ describe EvilFront::Russian do
   describe 'typograph_html' do
 
     it 'typographs plain text' do
-      EvilFront::Russian.typograph_html('а - б').should == 'а — б'
+      EvilFront::Russian.typograph_html('а...').should == 'а…'
     end
 
     it 'typographs only in text nodes' do
-      EvilFront::Russian.typograph_html('<a title="а - б">а - б</a>').should ==
-        '<a title="а - б">а — б</a>'
+      EvilFront::Russian.typograph_html('<a title="а...">а...</a>').should ==
+        '<a title="а...">а…</a>'
     end
 
     it 'ignores code tags' do
-      EvilFront::Russian.typograph_html('<code>а - б</code>').should ==
-        '<code>а - б</code>'
+      EvilFront::Russian.typograph_html('<code>а...</code>').should ==
+        '<code>а...</code>'
     end
 
     it 'keeps escaping' do

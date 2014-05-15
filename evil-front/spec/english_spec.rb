@@ -3,23 +3,26 @@
 require_relative 'spec_helper'
 
 describe EvilFront::English do
+  def nbsp_mark_typograph(str)
+    EvilFront::English.typograph(str).gsub(' ', '_')
+  end
 
   describe 'typograph' do
 
     it 'changes quotes' do
-      EvilFront::English.typograph('"a".').should == '“a”.'
+      nbsp_mark_typograph('"a".').should == '“a”.'
     end
 
     it 'changes dashes' do
-      EvilFront::English.typograph('a - b').should == 'a - b'
+      nbsp_mark_typograph('a - b').should == 'a - b'
     end
 
     it 'changes ellipsis' do
-      EvilFront::English.typograph('a...').should == 'a…'
+      nbsp_mark_typograph('a...').should == 'a…'
     end
 
     it 'inserts non-break spaces' do
-      EvilFront::English.typograph('he is a hero').should == 'he is a hero'
+      nbsp_mark_typograph('he is a hero').should == 'he is_a_hero'
     end
 
   end

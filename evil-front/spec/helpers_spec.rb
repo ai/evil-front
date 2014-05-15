@@ -64,8 +64,8 @@ describe EvilFront::Helpers do
   describe 'russian_typograph' do
 
     it 'typographs text inside tags' do
-      tag = '<a title="а - б">а - б</a>'.html_safe
-      russian_typograph(tag).should == '<a title="а - б">а — б</a>'
+      tag = '<a title="а...">а...</a>'.html_safe
+      russian_typograph(tag).should == '<a title="а...">а…</a>'
     end
 
     it 'escapes HTML' do
