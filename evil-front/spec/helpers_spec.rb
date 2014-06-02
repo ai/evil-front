@@ -9,7 +9,7 @@ describe EvilFront::Helpers do
   describe 'capitalize_first' do
 
     it 'capitalizes Russian' do
-      capitalize_first('тест').should == 'Тест'
+      expect(capitalize_first('тест')).to eq 'Тест'
     end
 
   end
@@ -17,7 +17,7 @@ describe EvilFront::Helpers do
   describe 'disable_mobile_zoom' do
 
     it 'returns viewport meta tag' do
-      disable_mobile_zoom.should =~ /^<meta name="viewport" /
+      expect(disable_mobile_zoom).to match(/^<meta name="viewport" /)
     end
 
   end
@@ -25,14 +25,15 @@ describe EvilFront::Helpers do
   describe 'flying_quotes' do
 
     it 'set quotes to text' do
-      flying_quotes('a').should == '<span class="space-before-quote"> </span>' +
-                                   '<span class="quotes">«a»</span>'
+      expect(flying_quotes('a')).to eq(
+        '<span class="space-before-quote"> </span>' +
+        '<span class="quotes">«a»</span>')
     end
 
     it 'escapes HTML' do
-      flying_quotes('<br>').should ==
+      expect(flying_quotes('<br>')).to eq(
         '<span class="space-before-quote"> </span>' +
-        '<span class="quotes">«&lt;br&gt;»</span>'
+        '<span class="quotes">«&lt;br&gt;»</span>')
     end
 
   end
@@ -40,15 +41,15 @@ describe EvilFront::Helpers do
   describe 'auto_flying_quotes' do
 
     it 'set quotes to text' do
-      auto_flying_quotes('от «a»').should ==
+      expect(auto_flying_quotes('от «a»')).to eq(
         'от<span class="space-before-quote"> </span>' +
-        '<span class="quotes">«a»</span>'
+        '<span class="quotes">«a»</span>')
     end
 
     it 'escapes HTML' do
-      auto_flying_quotes('от «<br>»').should ==
+      expect(auto_flying_quotes('от «<br>»')).to eq(
         'от<span class="space-before-quote"> </span>' +
-        '<span class="quotes">«&lt;br&gt;»</span>'
+        '<span class="quotes">«&lt;br&gt;»</span>')
     end
 
   end
@@ -56,7 +57,7 @@ describe EvilFront::Helpers do
   describe 'ruble' do
 
     it 'returns span' do
-      ruble.should be_a(String)
+      expect(ruble).to be_a(String)
     end
 
   end
@@ -65,11 +66,11 @@ describe EvilFront::Helpers do
 
     it 'typographs text inside tags' do
       tag = '<a title="а...">а...</a>'.html_safe
-      russian_typograph(tag).should == '<a title="а...">а…</a>'
+      expect(russian_typograph(tag)).to eq'<a title="а...">а…</a>'
     end
 
     it 'escapes HTML' do
-      russian_typograph('<a>').should == '&lt;a&gt;'
+      expect(russian_typograph('<a>')).to eq '&lt;a&gt;'
     end
 
   end
@@ -78,11 +79,11 @@ describe EvilFront::Helpers do
 
     it 'typographs text inside tags' do
       tag = '<a title="a...">a...</a>'.html_safe
-      english_typograph(tag).should == '<a title="a...">a…</a>'
+      expect(english_typograph(tag)).to eq '<a title="a...">a…</a>'
     end
 
     it 'escapes HTML' do
-      english_typograph('<a>').should == '&lt;a&gt;'
+      expect(english_typograph('<a>')).to eq '&lt;a&gt;'
     end
 
   end
@@ -94,15 +95,15 @@ describe EvilFront::Helpers do
 
     it 'typographs by current locale' do
       I18n.locale = :en
-      typograph_by_locale('"a"').should == '“a”'
+      expect(typograph_by_locale('"a"')).to eq '“a”'
 
       I18n.locale = :ru
-      typograph_by_locale('"a"').should == '«a»'
+      expect(typograph_by_locale('"a"')).to eq '«a»'
     end
 
     it 'returns origin text on unknown locale' do
       I18n.locale = :fr
-      typograph_by_locale('"a"').should == '"a"'
+      expect(typograph_by_locale('"a"')).to eq '"a"'
     end
 
   end
@@ -114,37 +115,37 @@ describe EvilFront::Helpers do
     end
 
     it 'shows site name' do
-      title_tag('Site').should == '<title>Site</title>'
+      expect(title_tag('Site')).to eq '<title>Site</title>'
     end
 
     it 'shows site names' do
-      title_tag('One', 'Two').should == '<title>One - Two</title>'
+      expect(title_tag('One', 'Two')).to eq '<title>One - Two</title>'
     end
 
     it 'shows page name' do
       title 'Page', 'Section'
-      title_tag('Site').should == '<title>Page - Section - Site</title>'
+      expect(title_tag('Site')).to eq '<title>Page - Section - Site</title>'
     end
 
     it 'shows Russian separator' do
       I18n.locale = :ru
       title 'Страница', 'Раздел'
-      title_tag('Сайт').should == '<title>Страница — Раздел — Сайт</title>'
+      expect(title_tag('Сайт')).to eq '<title>Страница — Раздел — Сайт</title>'
     end
 
     it 'shows custom separator' do
       title 'One', 'Two'
-      title_tag(separator: ' | ').should == '<title>One | Two</title>'
+      expect(title_tag(separator: ' | ')).to eq '<title>One | Two</title>'
     end
 
     it 'escapes HTML' do
       title '<B>'
-      title_tag.should == '<title>&lt;B&gt;</title>'
+      expect(title_tag).to eq '<title>&lt;B&gt;</title>'
     end
 
     it 'hides site name on request' do
       title 'Page', no_site: true
-      title_tag('Site').should == '<title>Page</title>'
+      expect(title_tag('Site')).to eq '<title>Page</title>'
     end
 
   end

@@ -14,27 +14,27 @@ describe 'Sass Helpers' do
   end
 
   it 'loads Rails Sass Images' do
-    @assets['load'].to_s.should =~ /data:text\/plain/
+    expect(@assets['load'].to_s).to match(/data:text\/plain/)
   end
 
   it 'loads variables, functions and mixins' do
     load = @assets['load'].to_s
-    load.should =~ /rgba\(0, 0, 0, 0.5\)/
-    load.should =~ /cubic-bezier\(0.47, 0, 0.745, 0.715\)/
-    load.should =~ /a:after/
+    expect(load).to match(/rgba\(0, 0, 0, 0.5\)/)
+    expect(load).to match(/cubic-bezier\(0.47, 0, 0.745, 0.715\)/)
+    expect(load).to match(/a:after/)
   end
 
   describe '+import-ruble' do
 
     it 'adds font-faces and .ruble' do
       ruble = @assets['ruble'].to_s
-      ruble.should =~ /font-family: ALSRubl-Arial, PT Sans, sans-serif/
-      ruble.should_not =~ /font-woff;base64/
+      expect(ruble).to match(/font-family: ALSRubl-Arial, PT Sans, sans-serif/)
+      expect(ruble).not_to match(/font-woff;base64/)
     end
 
     it 'inlines specified fonts' do
       ruble = @assets['inline-ruble'].to_s
-      ruble.should =~ /font-style: italic;\s*src: url\('data/n
+      expect(ruble).to match(/font-style: italic;\s*src: url\('data/n)
     end
 
   end
@@ -45,11 +45,11 @@ describe 'Sass Helpers' do
     end
 
     it 'receives size without units' do
-      @media.should =~ /max-width: 100px/
+      expect(@media).to match(/max-width: 100px/)
     end
 
     it 'receives size with units' do
-      @media.should =~ /min-width: 200px/
+      expect(@media).to match(/min-width: 200px/)
     end
 
   end
@@ -60,15 +60,15 @@ describe 'Sass Helpers' do
     end
 
     it 'receives 2 sizes' do
-      @size.should =~ /.all {\s*width: 10px;\s*height: 20px; }/
+      expect(@size).to match(/.all {\s*width: 10px;\s*height: 20px; }/)
     end
 
     it 'receives 1 sizes' do
-      @size.should =~ /.one {\s*width: 30px;\s*height: 30px; }/
+      expect(@size).to match(/.one {\s*width: 30px;\s*height: 30px; }/)
     end
 
     it 'receives size without unit' do
-      @size.should =~ /.no-unit {\s*width: 15px;\s*height: 15px; }/
+      expect(@size).to match(/.no-unit {\s*width: 15px;\s*height: 15px; }/)
     end
 
   end

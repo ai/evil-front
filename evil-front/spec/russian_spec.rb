@@ -7,7 +7,7 @@ describe EvilFront::Russian do
   describe 'capitalize_first' do
 
     it 'capitalizes first letter in russian text' do
-      EvilFront::Russian.capitalize_first('тест тест').should == 'Тест тест'
+      expect(EvilFront::Russian.capitalize_first('тест тест')).to eq 'Тест тест'
     end
 
   end
@@ -15,20 +15,20 @@ describe EvilFront::Russian do
   describe 'flying_quotes' do
 
     it 'inserts tags and quotes with space by default' do
-      EvilFront::Russian.flying_quotes('тест').should ==
+      expect(EvilFront::Russian.flying_quotes('тест')).to eq(
         '<span class="space-before-quote"> </span>' +
-        '<span class="quotes">«тест»</span>'
+        '<span class="quotes">«тест»</span>')
     end
 
     it 'inserts specified space' do
-      EvilFront::Russian.flying_quotes('тест', space: '-').should ==
+      expect(EvilFront::Russian.flying_quotes('тест', space: '-')).to eq(
         '<span class="space-before-quote">-</span>' +
-        '<span class="quotes">«тест»</span>'
+        '<span class="quotes">«тест»</span>')
     end
 
     it 'ignores space on request' do
-      EvilFront::Russian.flying_quotes('тест', space: '').should ==
-        '<span class="quotes">«тест»</span>'
+      expect(EvilFront::Russian.flying_quotes('тест', space: '')).to eq(
+        '<span class="quotes">«тест»</span>')
     end
 
   end
@@ -36,19 +36,19 @@ describe EvilFront::Russian do
   describe 'auto_flying_quotes' do
 
     it 'replaces quotes on start' do
-      EvilFront::Russian.auto_flying_quotes('«тест»').should ==
-        '<span class="quotes">«тест»</span>'
+      expect(EvilFront::Russian.auto_flying_quotes('«тест»')).to eq(
+        '<span class="quotes">«тест»</span>')
     end
 
     it 'replaces quotes in middle' do
-      EvilFront::Russian.auto_flying_quotes('на «тесте».').should ==
+      expect(EvilFront::Russian.auto_flying_quotes('на «тесте».')).to eq(
         'на<span class="space-before-quote"> </span>' +
-        '<span class="quotes">«тесте»</span>.'
+        '<span class="quotes">«тесте»</span>.')
     end
 
     it 'works with HTML' do
-      EvilFront::Russian.auto_flying_quotes('<a>«ссылка»</a>').should ==
-        '<a><span class="quotes">«ссылка»</span></a>'
+      expect(EvilFront::Russian.auto_flying_quotes('<a>«ссылка»</a>')).to eq(
+        '<a><span class="quotes">«ссылка»</span></a>')
     end
 
   end
@@ -59,20 +59,20 @@ describe EvilFront::Russian do
     end
 
     it 'changes quotes' do
-      nbsp_mark_typograph('сказал "смотри "зорко"".').should ==
-        'сказал «смотри „зорко“».'
+      expect(nbsp_mark_typograph('сказал "смотри "зорко"".')).to eq(
+        'сказал «смотри „зорко“».')
     end
 
     it 'changes dashes' do
-      nbsp_mark_typograph('а - это б').should == 'а_— это_б'
+      expect(nbsp_mark_typograph('а - это б')).to eq 'а_— это_б'
     end
 
     it 'changes ellipsis' do
-      nbsp_mark_typograph('а...').should == 'а…'
+      expect(nbsp_mark_typograph('а...')).to eq 'а…'
     end
 
     it 'inserts non-break spaces' do
-      nbsp_mark_typograph('оно не надо').should == 'оно не_надо'
+      expect(nbsp_mark_typograph('оно не надо')).to eq 'оно не_надо'
     end
 
   end
@@ -80,22 +80,22 @@ describe EvilFront::Russian do
   describe 'typograph_html' do
 
     it 'typographs plain text' do
-      EvilFront::Russian.typograph_html('а...').should == 'а…'
+      expect(EvilFront::Russian.typograph_html('а...')).to eq 'а…'
     end
 
     it 'typographs only in text nodes' do
-      EvilFront::Russian.typograph_html('<a title="а...">а...</a>').should ==
-        '<a title="а...">а…</a>'
+      expect(EvilFront::Russian.typograph_html('<a title="а...">а...</a>')).
+        to eq '<a title="а...">а…</a>'
     end
 
     it 'ignores code tags' do
-      EvilFront::Russian.typograph_html('<code>а...</code>').should ==
-        '<code>а...</code>'
+      expect(EvilFront::Russian.typograph_html('<code>а...</code>')).
+        to eq '<code>а...</code>'
     end
 
     it 'keeps escaping' do
-      EvilFront::Russian.typograph_html('<b>&lt;a&gt;</b>').should ==
-        '<b>&lt;a&gt;</b>'
+      expect(EvilFront::Russian.typograph_html('<b>&lt;a&gt;</b>')).
+        to eq '<b>&lt;a&gt;</b>'
     end
 
   end

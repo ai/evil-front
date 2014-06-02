@@ -10,19 +10,19 @@ describe EvilFront::English do
   describe 'typograph' do
 
     it 'changes quotes' do
-      nbsp_mark_typograph('"a".').should == '“a”.'
+      expect(nbsp_mark_typograph('"a".')).to eq '“a”.'
     end
 
     it 'changes dashes' do
-      nbsp_mark_typograph('a - b').should == 'a - b'
+      expect(nbsp_mark_typograph('a - b')).to eq 'a - b'
     end
 
     it 'changes ellipsis' do
-      nbsp_mark_typograph('a...').should == 'a…'
+      expect(nbsp_mark_typograph('a...')).to eq 'a…'
     end
 
     it 'inserts non-break spaces' do
-      nbsp_mark_typograph('he is a hero').should == 'he is_a_hero'
+      expect(nbsp_mark_typograph('he is a hero')).to eq 'he is_a_hero'
     end
 
   end
