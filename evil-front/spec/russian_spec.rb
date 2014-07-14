@@ -76,7 +76,7 @@ describe EvilFront::Russian do
     end
 
     it 'uses non-break dash on for Russian' do
-      expect(nbsp_mark_typograph('web-standarts.com')).to eq 'web-standarts.com'
+      expect(nbsp_mark_typograph('web-standards.ru')).to eq 'web-standards.ru'
       expect(nbsp_mark_typograph('а-то')).to eq 'а‑то'
     end
 
