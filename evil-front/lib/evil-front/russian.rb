@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 require 'unicode_utils'
+# encoding: utf-8
+
 require 'standalone_typograf'
 
 module EvilFront
@@ -46,7 +48,8 @@ module EvilFront
     # Replace symbols to right ones, like m-dash, quotes, etc.
     def self.use_right_symbols(text)
       StandaloneTypograf::Typograf.new(text).prepare
-        .gsub(' —', ' —') # nbsp before m-dash
+        .gsub(' —', ' —')                       # nbsp before m-dash
+        .gsub(/([а-яА-Я])-([а-яА-Я])/, '\1‑\2') # non-break dash
     end
   end
 end

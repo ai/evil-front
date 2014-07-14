@@ -20,7 +20,6 @@ module EvilFront
 
       text.gsub! '&quot;', '"'
       text = use_right_symbols(text)
-      text.gsub!(/([^\s" ]+)-([^\s" ]+)/, '\1‑\2')
       tiny_words.each { |regexp| text.gsub! regexp, "\\1\\2 " }
 
       text
