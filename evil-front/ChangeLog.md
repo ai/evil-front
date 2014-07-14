@@ -1,3 +1,7 @@
+## 0.3.7
+
+* Use non-break dash only in Russian words.
+
 ## 0.3.6
 
 * Russian typograph inserts non-break space before m-dash.
