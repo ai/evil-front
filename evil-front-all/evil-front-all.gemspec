@@ -26,5 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-cdn',          '>= 1'
   s.add_dependency 'coffee-script',       '>= 2.2.0'
   s.add_dependency 'evil-blocks-rails',   '>= 0.2'
-  s.add_dependency 'autoprefixer-rails',  '>= 0.5'
+  s.add_dependency 'autoprefixer-rails',  '>= 3.0'
 end

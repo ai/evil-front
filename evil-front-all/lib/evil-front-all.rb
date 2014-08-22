@@ -11,7 +11,10 @@ module EvilFront
   # Install Evil Front, Autoprefixer, Evil Blocks, Rails Sass Images
   # and Csso to Sprockets.
   def self.install_all(sprockets, options = {})
-    AutoprefixerRails.install(sprockets, options[:browsers])
+    autoprefixer = { }
+    autoprefixer[:browsers] = options[:browsers] if options.has_key? :browsers
+
+    AutoprefixerRails.install(sprockets, autoprefixer)
     EvilBlocks.install(sprockets)
     JqueryCdn.install(sprockets)
     Csso.install(sprockets)
