@@ -1,3 +1,7 @@
+## 0.3.1
+
+* Use new API for Autoprefixer 3.0.
+
 ## 0.3 “Samara Vallis”
 
 * Bump version to use latest Evil Front core.
