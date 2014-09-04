@@ -1,3 +1,7 @@
+## 0.3.8
+
+* Import all inner dependenies in mixins to import only necessary mixin.
+
 ## 0.3.7
 
 * Use non-break dash only in Russian words.
