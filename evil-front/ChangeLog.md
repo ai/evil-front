@@ -1,3 +1,7 @@
+## 0.3.9
+
+* Fix typograph on new line before m-dash.
+
 ## 0.3.8
 
 * Import all inner dependenies in mixins to import only necessary mixin.
