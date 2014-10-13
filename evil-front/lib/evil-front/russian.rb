@@ -47,7 +47,8 @@ module EvilFront
 
     # Replace symbols to right ones, like m-dash, quotes, etc.
     def self.use_right_symbols(text)
-      StandaloneTypograf::Typograf.new(text).prepare
+      StandaloneTypograf::Typograf.new(text)
+        .processor(:dashes, :quotes, :mnemonics, :fractions, :ellipsis)
         .gsub(' —', ' —')                       # nbsp before m-dash
         .gsub(/([а-яА-Я])-([а-яА-Я])/, '\1‑\2') # non-break dash
     end

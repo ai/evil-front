@@ -71,8 +71,8 @@ describe EvilFront::Russian do
       expect(nbsp_mark_typograph('а...')).to eq 'а…'
     end
 
-    it 'inserts non-break spaces' do
-      expect(nbsp_mark_typograph('оно не надо')).to eq 'оно не_надо'
+    it 'keeps new line before dash' do
+      expect(nbsp_mark_typograph("- Что?\n- То!")).to eq "— Что?\n— То!"
     end
 
     it 'uses non-break dash on for Russian' do
