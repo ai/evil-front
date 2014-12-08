@@ -1,3 +1,7 @@
+## 0.3.10
+
+* Add Slim 3.0 support.
+
 ## 0.3.9
 
 * Fix typograph on new line before m-dash.
