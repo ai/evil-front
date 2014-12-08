@@ -119,10 +119,10 @@ The Evil Front All gem loads my must-have tools:
 * [Slim](http://slim-lang.com/) to write pretty views.
 * [CoffeeScript](http://coffeescript.org/) to write pretty scripts.
 * [Uglifier](https://github.com/lautis/uglifier) to compress JS.
-* [Csso](http://bem.info/tools/csso/) to compress CSS.
+* [CSSO](http://bem.info/tools/csso/) to compress CSS.
 * [Sprockets](https://github.com/sstephenson/sprockets) to work with assets
   in best way.
-* [JqueryCdn](https://github.com/ai/jquery-cdn) to load latest jQuery
+* [jQueryCDN](https://github.com/ai/jquery-cdn) to load latest jQuery
   in best way.
 * [Autoprefixer](https://github.com/ai/autoprefixer) to add CSS3 prefixes.
 * [Rails Sass Images](https://github.com/ai/rails-sass-images) to inline images
@@ -134,6 +134,6 @@ The Evil Front All gem loads my must-have tools:
 The Evil Front Rails gem changes default Rails settings:
 
 * **Autoprecompile** adds all files in root of `app/assets/stylesheets`
-  and `app/assets/javascripts` to precompile You should only store loadable
+  and `app/assets/javascripts` to precompile. You should only store loadable
   files in subdirs.
 * **Disable assets generation** on controller and action generation.
