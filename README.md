@@ -1,4 +1,4 @@
-# Evil Front
+# Evil Front [![Build Status](https://travis-ci.org/ai/evil-front.svg)](https://travis-ci.org/ai/evil-front)
 
 Helpers, shortcuts and my common frontend workflows
 from [Evil Martians](http://evilmartians.com/).
@@ -17,6 +17,10 @@ so I recommend to only use them for new projects.
 
 Some of the view helpers from Evil Front Core may require Rails, but most of them
 work with any Ruby application.
+
+<a href="https://evilmartians.com/?utm_source=evil-front">
+<img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg" alt="Sponsored by Evil Martians" width="236" height="54">
+</a>
 
 ## Helpers
 
