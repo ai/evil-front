@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'uglifier',            '>= 2.1.1'
   s.add_dependency 'sprockets',           '>= 1'
-  s.add_dependency 'csso-rails',          '>= 0.4'
   s.add_dependency 'jquery-cdn',          '>= 1'
   s.add_dependency 'coffee-script',       '>= 2.2.0'
   s.add_dependency 'evil-blocks-rails',   '>= 0.2'

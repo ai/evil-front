@@ -1,7 +1,6 @@
 require 'evil-front'
 
 require 'uglifier'
-require 'csso'
 require 'jquery-cdn'
 require 'coffee_script'
 require 'evil-blocks-rails'
@@ -17,7 +16,6 @@ module EvilFront
     AutoprefixerRails.install(sprockets, autoprefixer)
     EvilBlocks.install(sprockets)
     JqueryCdn.install(sprockets)
-    Csso.install(sprockets)
     install(sprockets)
 
     EvilFront.set_slim_options!
