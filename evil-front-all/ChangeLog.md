@@ -1,3 +1,7 @@
+## 0.4 “Schiaparelli Crater”
+
+* Add Sprockets 3 support.
+
 ## 0.3.1
 
 * Use new API for Autoprefixer 3.0.
