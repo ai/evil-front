@@ -1,8 +1,13 @@
 require 'evil-front-all'
 
+require 'therubyracer'
+require 'commonjs'
+require 'ruby-clean-css/version'
+require 'ruby-clean-css/exports'
+require 'ruby-clean-css/compressor'
+
 require 'sass-rails'
 require 'slim-rails'
-require 'csso'
 
 module EvilFront
   class Railtie < ::Rails::Railtie
@@ -24,7 +29,7 @@ module EvilFront
         app.config.sass.debug_info = true
       end
 
-      app.config.assets.css_compressor = Csso::Compressor
+      app.config.assets.css_compressor = RubyCleanCSS::Compressor.new
     end
 
     initializer 'evil_front.action_view' do
