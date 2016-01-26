@@ -91,48 +91,6 @@ describe HelpersController, type: :controller do
 
   end
 
-  describe 'standard_assets' do
-
-    it 'includes links' do
-      Rails.env = ActiveSupport::StringInquirer.new('development')
-      get :standard_assets
-      expect(response).to be_success
-      expect(response.body).to eq(
-        '<link href="/stylesheets/application.css" ' +
-              'media="all" rel="stylesheet" />' +
-        '<script src="/assets/jquery.js"></script>' +
-        '<script src="/javascripts/application.js"></script>')
-    end
-
-    it 'includes CDN jQuery' do
-      Rails.env = ActiveSupport::StringInquirer.new('production')
-      get :standard_assets
-      expect(response).to be_success
-      expect(response.body).to eq(
-        '<link href="/stylesheets/application.css" ' +
-              'media="all" rel="stylesheet" />' +
-        '<script src="//ajax.googleapis.com/ajax/libs/jquery/' +
-                     "#{ JqueryCdn::VERSION }/jquery.min.js\"></script>" +
-        "<script>window.jQuery || " +
-                "document.write(unescape('%3Cscript " +
-                "src=\"/assets/jquery.js\">%3C/script>'))</script>" +
-        '<script src="/javascripts/application.js"></script>')
-    end
-
-    it 'includes additional libraries' do
-      Rails.env = ActiveSupport::StringInquirer.new('development')
-      get :library
-      expect(response).to be_success
-      expect(response.body).to eq(
-        '<link href="/stylesheets/application.css" ' +
-              'media="all" rel="stylesheet" />' +
-        '<script src="/assets/jquery.js"></script>' +
-        '<link src="a" />' +
-        '<script src="/javascripts/application.js"></script>')
-    end
-
-  end
-
   describe 'tel' do
 
     it 'renders telephone link' do

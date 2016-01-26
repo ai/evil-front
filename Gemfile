@@ -4,7 +4,6 @@ gem 'rake'
 gem 'rails', '>= 4'
 
 gem 'rspec-rails'
-gem 'konacha'
 
 gem 'evil-front',       path: 'evil-front/'
 gem 'evil-front-all',   path: 'evil-front-all/',   require: false
