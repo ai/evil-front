@@ -29,7 +29,8 @@ module EvilFront
         app.config.sass.debug_info = true
       end
 
-      app.config.assets.css_compressor = RubyCleanCSS::Compressor.new
+      app.config.assets.css_compressor = RubyCleanCSS::Compressor.new(
+        keep_special_comments: :none)
     end
 
     initializer 'evil_front.action_view' do
