@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'evil-front-all', "~> #{min}"
 
   s.add_dependency 'rails',        '>= 3'
+  s.add_dependency 'csso-rails',   '>= 0.4'
   s.add_dependency 'sass-rails',   '>= 3.2.6'
   s.add_dependency 'slim-rails',   '>= 1.1.0'
   s.add_dependency 'coffee-rails', '>= 3.2.2'

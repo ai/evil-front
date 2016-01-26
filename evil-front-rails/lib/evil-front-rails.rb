@@ -2,6 +2,7 @@ require 'evil-front-all'
 
 require 'sass-rails'
 require 'slim-rails'
+require 'csso'
 
 module EvilFront
   class Railtie < ::Rails::Railtie
@@ -22,6 +23,8 @@ module EvilFront
       if ::Rails.env.development?
         app.config.sass.debug_info = true
       end
+
+      app.config.assets.css_compressor = Csso::Compressor
     end
 
     initializer 'evil_front.action_view' do
