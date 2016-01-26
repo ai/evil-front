@@ -1,7 +1,7 @@
 require 'evil-front'
 
 require 'uglifier'
-require 'csso-rails'
+require 'csso'
 require 'jquery-cdn'
 require 'coffee_script'
 require 'evil-blocks-rails'
