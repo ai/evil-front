@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 GEMS  = %w(evil-front evil-front-rails evil-front-all)
-SPECS = GEMS - ['evil-front-all']
+SPECS = GEMS - ['evil-front-all', 'evil-front-rails']
 
 def each_gem(&block)
   GEMS.each do |dir|
