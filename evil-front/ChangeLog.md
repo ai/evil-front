@@ -1,3 +1,7 @@
+## 0.5 “Chryse Planitia”
+
+* Remove `clean-css`.
+
 ## 0.4 “Schiaparelli Crater”
 
 * Add Sprockets 3 support.
