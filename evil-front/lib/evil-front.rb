@@ -13,6 +13,9 @@ module EvilFront
   if defined?(::Rails)
     # Enable `lib/assets/` and `vendor/assets/` in Rails app.
     class Engine < ::Rails::Engine
+      initializer 'evil_front.action_view' do
+        ActiveSupport.on_load(:action_view) { include Helpers }
+      end
     end
   end
 
