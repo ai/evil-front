@@ -1,3 +1,7 @@
+## 0.5.1
+
+* Fix `evil.body` initializing (by Vladimir Dementyev).
+
 ## 0.5 “Chryse Planitia”
 
 * Remove `clean-css`.

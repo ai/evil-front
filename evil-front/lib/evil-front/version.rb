@@ -1,3 +1,3 @@
 module EvilFront
-  VERSION = '0.5.0' unless defined? EvilFront::VERSION
+  VERSION = '0.5.1' unless defined? EvilFront::VERSION
 end
